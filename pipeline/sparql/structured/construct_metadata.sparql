@@ -1,0 +1,154 @@
+# SPARQL Anything CONSTRUCT — eu_ai_act_metadata.json → ontology-aligned RDF
+
+
+PREFIX fx:       <http://sparql.xyz/facade-x/ns/>
+PREFIX xyz:      <http://sparql.xyz/facade-x/data/>
+PREFIX rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs:     <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd:      <http://www.w3.org/2001/XMLSchema#>
+PREFIX dct:      <http://purl.org/dc/terms/>
+PREFIX owl:      <http://www.w3.org/2002/07/owl#>
+PREFIX airo:     <https://w3id.org/airo#>
+PREFIX dpv:      <https://w3id.org/dpv#>
+PREFIX eu-aiact: <https://w3id.org/dpv/legal/eu/aiact#>
+PREFIX :         <https://example.org/eu-ai-act-compliance#>
+
+CONSTRUCT {
+
+  # AI Act regulation instance 
+  :EUAIAct2024 a owl:NamedIndividual , :AIActRegulation ;
+    rdfs:label "Regulation (EU) 2024/1689 — EU AI Act"@en ;
+    :hasCELEXNumber ?celex ;
+    :hasCellarURI   ?cellarStr .
+
+  # Compliance deadlines
+  ?deadlineIRI a :ComplianceDeadlineProvision ;
+    rdfs:label ?deadlineLabel ;
+    :hasProvisionDate ?deadlineDateTyped .
+  :EUAIAct2024 :hasComplianceProvision ?deadlineIRI .
+  ?deadlineIRI :hasArticleReference ?deadlineArticleIRI .
+
+  # Entry-into-force dates 
+  ?eifIRI a :EntryIntoForceDate ;
+    rdfs:label ?eifLabel ;
+    :hasEffectiveDate ?eifDateTyped .
+  :EUAIAct2024 :hasEntryIntoForceProvision ?eifIRI .
+  ?eifIRI :hasArticleReference ?eifArticleIRI .
+
+  # Creating institution 
+  ?creatorIRI a dpv:Authority ;
+    rdfs:label ?creatorLabel .
+  :EUAIAct2024 :createdBy ?creatorIRI .
+
+  # Amended legislation 
+  ?amendIRI a :EULegislation ;
+    rdfs:label ?amendLabel ;
+    :hasCELEXNumber ?amendCelex ;
+    :hasModifiedLocation ?amendModifiedLocation .
+  :EUAIAct2024 :amends ?amendIRI .
+
+  # Cited legislation
+  ?citeIRI a :EULegislation ;
+    rdfs:label ?citeLabel ;
+    :hasCELEXNumber ?citeCelex .
+  :EUAIAct2024 :cites ?citeIRI .
+
+}
+WHERE {
+
+  SERVICE <x-sparql-anything:location=data/structured/eu_ai_act_metadata.json> {
+
+    # Regulation identifiers
+    ?root xyz:regulation ?reg .
+    ?reg xyz:celex ?celex .
+    ?reg xyz:cellar_uri ?cellarUri .
+
+    BIND(STR(?cellarUri) AS ?cellarStr)
+
+    # Deadlines
+    OPTIONAL {
+      ?root xyz:deadlines ?dlArray .
+      ?dlArray ?dlSlot ?dlItem .
+      FILTER (?dlSlot != rdf:type)
+      ?dlItem xyz:date ?dlDate .
+
+      OPTIONAL {
+        ?dlItem xyz:article_references ?dlRefArray .
+        ?dlRefArray ?dlRefSlot ?deadlineArticleStr .
+        FILTER (?dlRefSlot != rdf:type)
+        BIND(IRI(CONCAT(STR(:), "Article_",
+                  REPLACE(STR(?deadlineArticleStr), "[^0-9]", ""))) AS ?deadlineArticleIRI)
+      }
+
+      BIND(STRDT(STR(?dlDate), xsd:date) AS ?deadlineDateTyped)
+      BIND(IRI(CONCAT(STR(:), "ComplianceDeadline_",
+                REPLACE(STR(?dlDate), "-", ""))) AS ?deadlineIRI)
+      BIND(CONCAT("Compliance deadline ", STR(?dlDate)) AS ?deadlineLabel)
+    }
+
+    # Entry into force 
+    OPTIONAL {
+      ?root xyz:entry_into_force ?eifArray .
+      ?eifArray ?eifSlot ?eifItem .
+      FILTER (?eifSlot != rdf:type)
+      ?eifItem xyz:date ?eifDate .
+
+      OPTIONAL {
+        ?eifItem xyz:article_references ?eifRefArray .
+        ?eifRefArray ?eifRefSlot ?eifArticleStr .
+        FILTER (?eifRefSlot != rdf:type)
+        BIND(IRI(CONCAT(STR(:), "Article_",
+                  REPLACE(STR(?eifArticleStr), "[^0-9]", ""))) AS ?eifArticleIRI)
+      }
+
+      BIND(STRDT(STR(?eifDate), xsd:date) AS ?eifDateTyped)
+      BIND(IRI(CONCAT(STR(:), "EntryIntoForce_",
+                REPLACE(STR(?eifDate), "-", ""))) AS ?eifIRI)
+      BIND(CONCAT("Entry into force ", STR(?eifDate)) AS ?eifLabel)
+    }
+
+    # Created by
+    OPTIONAL {
+      ?root xyz:created_by ?creatorArray .
+      ?creatorArray ?creatorSlot ?creatorItem .
+      FILTER (?creatorSlot != rdf:type)
+      ?creatorItem xyz:label ?creatorLabel .
+
+      OPTIONAL { ?creatorItem xyz:identifier ?creatorId . }
+
+      BIND(
+        IRI(CONCAT(STR(:), "Creator_",
+              ENCODE_FOR_URI(COALESCE(?creatorId, REPLACE(STR(?creatorLabel), " ", "_")))
+            )) AS ?creatorIRI
+      )
+    }
+
+    # Amends
+    OPTIONAL {
+      ?root xyz:amends ?amendArray .
+      ?amendArray ?amendSlot ?amendItem .
+      FILTER (?amendSlot != rdf:type)
+      ?amendItem xyz:celex ?amendCelex .
+
+      OPTIONAL { ?amendItem xyz:modified_location ?amendModifiedLocation . }
+
+      BIND(IRI(CONCAT(STR(:), "Legislation_",
+            REPLACE(REPLACE(REPLACE(STR(?amendCelex), "/", "_"), "\\(", "_"), "\\)", "_")
+          )) AS ?amendIRI)
+      BIND(CONCAT("EU Legislation ", STR(?amendCelex)) AS ?amendLabel)
+    }
+
+    # Cites
+    OPTIONAL {
+      ?root xyz:cites ?citeArray .
+      ?citeArray ?citeSlot ?citeItem .
+      FILTER (?citeSlot != rdf:type)
+      ?citeItem xyz:celex ?citeCelex .
+
+      BIND(IRI(CONCAT(STR(:), "Legislation_",
+            REPLACE(REPLACE(REPLACE(STR(?citeCelex), "/", "_"), "\\(", "_"), "\\)", "_")
+          )) AS ?citeIRI)
+      BIND(CONCAT("EU Legislation ", STR(?citeCelex)) AS ?citeLabel)
+    }
+  }
+}

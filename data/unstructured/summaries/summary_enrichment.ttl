@@ -1,0 +1,507 @@
+@prefix : <https://example.org/eu-ai-act-compliance#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:Annex_I a :Annex ;
+    :hasSourceURL "https://artificialintelligenceact.eu/annex/1/"^^xsd:string ;
+    :hasSummary "This Annex lists various European Union laws that aim to standardize rules across member states. These laws cover a wide range of areas, including machinery, toy safety, recreational watercraft, lifts, equipment for potentially explosive atmospheres, radio equipment, pressure equipment, cableway installations, personal protective equipment, appliances burning gaseous fuels, medical devices, civil aviation security, two- or three-wheel vehicles, agricultural and forestry vehicles, marine equipment, rail system, motor vehicles and their trailers, and aircrafts."^^xsd:string .
+
+:Annex_II a :Annex ;
+    :hasSourceURL "https://artificialintelligenceact.eu/annex/2/"^^xsd:string ;
+    :hasSummary "This Annex provides a list of criminal offences that are mentioned in Article 5(1). Using artificial intelligence (AI) for any of these purposes is prohibited by the EU AI Act."^^xsd:string .
+
+:Annex_III a :Annex ;
+    :hasSourceURL "https://artificialintelligenceact.eu/annex/3/"^^xsd:string ;
+    :hasSummary "This Annex lists use cases that would qualify an AI system as 'high-risk' according to the AI Act. Such systems are subject to additional obligations under the Act. These use cases include AI used in biometrics, critical infrastructure, education, employment, essential services, law enforcement, migration, and justice. However, some exceptions apply for AI used for biometric identify verification, detecting financial fraud, or organising political campaigns."^^xsd:string .
+
+:Annex_IV a :Annex ;
+    :hasSourceURL "https://artificialintelligenceact.eu/annex/4/"^^xsd:string ;
+    :hasSummary "AI system providers are required to provide detailed technical documentation under the AI Act, and this Annex specifies what this documentation should contain. This includes a general description of the AI system, its purpose, how it interacts with other systems, and the hardware it runs on. It also requires a detailed description of the AI system's development process, including design specifications, data requirements, and testing procedures. The documentation must also include information about the system's performance, risk management, any changes made throughout its lifecycle, and how it complies with EU standards. Lastly, it should include a plan for monitoring the system's performance after it's been launched."^^xsd:string .
+
+:Annex_IX a :Annex ;
+    :hasSourceURL "https://artificialintelligenceact.eu/annex/9/"^^xsd:string ;
+    :hasSummary "Before any high-risk AI system is tested in real-world conditions, it must be registered according to Article 60.This Annex explains what information needs to be provided when registering high-risk AI systems for real-world testing. This includes a unique identification number for the test, contact details of the provider and those involved in the testing, a brief description of the AI system and its purpose, a summary of the testing plan, and information on any suspension or termination of the testing. This information must be kept up to date."^^xsd:string .
+
+:Annex_V a :Annex ;
+    :hasSourceURL "https://artificialintelligenceact.eu/annex/5/"^^xsd:string ;
+    :hasSummary "Providers of high-risk AI systems must create a written declaration of conformity for each system. This Annex details which elements must be included within the declaration of conformity. This includes the AI system's name and type, the provider's name and address, and a statement that the provider is solely responsible for the declaration. It must also confirm that the AI system complies with this regulation and any other relevant EU laws. If the AI system processes personal data, it must comply with a couple of other EU regulations. The declaration should also reference any relevant standards used, details of any conformity assessment, and the declaration's issue date and signatory."^^xsd:string .
+
+:Annex_VI a :Annex ;
+    :hasSourceURL "https://artificialintelligenceact.eu/annex/6/"^^xsd:string ;
+    :hasSummary "Article 43 of the AI Act provides some scenarios in which a \"conformity assessment procedure based on internal control\" might be required. This Annex explains what that process should be."^^xsd:string .
+
+:Annex_VII a :Annex ;
+    :hasSourceURL "https://artificialintelligenceact.eu/annex/7/"^^xsd:string ;
+    :hasSummary "Article 43 provides some scenarios in which a 'conformity assessment' might be required. This Annex outlines the process for assessing the quality management system and technical documentation of AI systems.In summary: The provider must submit an application including details about the AI systems, quality management procedures, and a declaration that the application hasn't been submitted elsewhere. The notified body will assess the system and notify the provider of the decision. Any changes to the system must be reported to the notified body. The provider must also submit an application for the assessment of the technical documentation of the AI system.The notified body will examine the documentation and may require further evidence or tests. If the AI system meets the requirements, a certificate will be issued. If not, the provider will be informed of the refusal and the reasons. Changes to the AI system that could affect compliance must be assessed by the notified body. The provider must allow the notified body to access the premises for assessment purposes and share all necessary information. The notified body will carry out periodic audits to ensure the provider maintains the quality management system."^^xsd:string .
+
+:Annex_VIII a :Annex ;
+    :hasSourceURL "https://artificialintelligenceact.eu/annex/8/"^^xsd:string ;
+    :hasSummary "Before any high-risk AI system – or a system that the provider has self-determined is not high-risk – is launched or used, the provider or their representative must register themselves and their system in the EU database according to Article 49.This Annex outlines the information required when registering high-risk AI systems. This includes the provider's contact details, the AI system's name and purpose, a description of the data it uses, its status (e.g., on the market, recalled), and any certification details. If the AI system is considered not high-risk, the provider must explain why. For those deploying high-risk AI systems, they must provide their contact details, a link to the AI system's entry in the EU database, and summaries of any impact assessments conducted. This information must be kept up-to-date."^^xsd:string .
+
+:Annex_X a :Annex ;
+    :hasSourceURL "https://artificialintelligenceact.eu/annex/10/"^^xsd:string ;
+    :hasSummary "There are special rules for large-scale IT systems and high-risk AI systems that are already in operation – they will only be required to comply with the AI Act by 2030 according to Article 111. This Annex lists the various large-scale IT systems that these special rules apply to:The Schengen Information System, which helps manage border checks and return of illegal immigrants;The Visa Information System, which sets conditions for accessing other EU information systems;Eurodac, which compares biometric data to identify illegal immigrants;The Entry/Exit System, which records entry and exit data of non-EU nationals;The European Travel Information and Authorisation System;The European Criminal Records Information System;And regulations for interoperability between these systems."^^xsd:string .
+
+:Annex_XI a :Annex ;
+    :hasSourceURL "https://artificialintelligenceact.eu/annex/11/"^^xsd:string ;
+    :hasSummary "Article 53 requires providers of general-purpose AI models to provide detailed technical documentation. This Annex specifies what documentation is required, including a general description of the AI model, its intended tasks, acceptable use policies, release date, distribution methods, architecture, and license. It should also detail the model's design, training process, data used, and energy consumption. For AI models with systemic risk, additional information is required, including evaluation strategies, adversarial testing measures, and a description of the system architecture. This is to ensure transparency and accountability in the use of AI systems."^^xsd:string .
+
+:Annex_XII a :Annex ;
+    :hasSourceURL "https://artificialintelligenceact.eu/annex/12/"^^xsd:string ;
+    :hasSummary "Article 53 requires providers of general-purpose AI models to provide detailed information to those who integrate these models into their AI systems. This Annex specifies what information is required, including a general description of the AI model, its intended tasks, how it can be integrated into other systems, its release date and distribution methods, and how it interacts with other hardware or software. It also requires information on the model's architecture, input and output formats, and licensing. Additionally, providers must describe the model's development process, including the technical requirements for integration, data used for training and testing, and data sourcing methods."^^xsd:string .
+
+:Annex_XIII a :Annex ;
+    :hasSourceURL "https://artificialintelligenceact.eu/annex/13/"^^xsd:string ;
+    :hasSummary "Article 51 explains how an AI model is classified as having systemic risk. When it is involved in making this determination, the European Commission will take into account the criteria listed in this Annex.Factors considered include: the model's complexity, the quality and size of the data used, the computational power needed to train the model, the type of input and output the model uses, the model's performance on various tasks, its level of independence and scalability, and its impact on the market. If the AI model is used by at least 10,000 registered businesses in the EU, it is assumed to have a high market impact."^^xsd:string .
+
+:Article_1 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/1/"^^xsd:string ;
+    :hasSummary "This law aims to improve the European market by promoting the use of artificial intelligence (AI) that is safe, respects human rights, and protects health, safety, and the environment. It sets out rules for how AI can be sold, used, and monitored in the EU, and bans certain AI practices. It also sets specific rules for high-risk AI systems and their operators, and requires certain AI systems to be transparent. The law also includes rules for selling general-purpose AI models and measures to support innovation, particularly for small businesses and start-ups."^^xsd:string .
+
+:Article_10 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/10/"^^xsd:string ;
+    :hasSummary "This article states that high-risk AI systems must be developed using high-quality data sets for training, validation, and testing. These data sets should be managed properly, considering factors like data collection processes, data preparation, potential biases, and data gaps. The data sets should be relevant, representative, error-free, and complete as much as possible. They should also consider the specific context in which the AI system will be used. In some cases, providers may process special categories of personal data to detect and correct biases, but they must follow strict conditions to protect individuals' rights and freedoms."^^xsd:string .
+
+:Article_100 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/100/"^^xsd:string ;
+    :hasSummary "The European Data Protection Supervisor can fine EU institutions if they break rules around artificial intelligence (AI). The size of the fine depends on factors like the seriousness and length of the rule-breaking, how many people were affected, and what the institution did to fix the problem. If an institution breaks the rules in Article 5, they can be fined up to €1.5 million. For other rule-breaking, the fine can be up to €750,000. The institution has the right to defend itself before the fine is decided. Money from fines goes into the EU's general budget. The Supervisor must report annually on the fines it has given out."^^xsd:string .
+
+:Article_101 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/101/"^^xsd:string ;
+    :hasSummary "The EU can fine companies that provide general-purpose AI models up to 3% of their annual global turnover or €15 million, whichever is higher, if they break the rules. This could be for not following regulations, not providing requested documents or information, not complying with certain measures, or not allowing the EU to access their AI model for evaluation. The severity of the fine depends on the seriousness and length of the infringement. Companies will be told about any preliminary findings and given a chance to respond before a decision is made. The EU Court of Justice can review and change any fines."^^xsd:string .
+
+:Article_102 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/102/"^^xsd:string ;
+    :hasSummary "This article is about changes to a previous regulation (EC No 300/2008). It says that when the EU is creating detailed rules about the technical aspects and approval processes for security equipment that uses artificial intelligence, they need to consider the requirements listed in a specific section of another regulation (EU 2024/...)."^^xsd:string .
+
+:Article_103 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/103/"^^xsd:string ;
+    :hasSummary "This article is about a change to a European Union regulation from 2013. The change is about how the EU makes rules related to artificial intelligence (AI) systems that are used for safety. When making these rules, the EU now has to consider certain requirements that are outlined in another section of the regulation."^^xsd:string .
+
+:Article_104 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/104/"^^xsd:string ;
+    :hasSummary "This article is about a change to a previous regulation. It says that when new rules are made about artificial intelligence (AI) systems that are used for safety, they need to consider the requirements listed in a specific section of another regulation. This is to ensure that the AI systems are safe and meet the standards set by the European Parliament and Council."^^xsd:string .
+
+:Article_105 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/105/"^^xsd:string ;
+    :hasSummary "This article is about updating a previous law (Directive 2014/90/EU). It adds a new section stating that when the European Commission is working on activities related to artificial intelligence (AI) systems that are considered safety components, it must consider certain requirements. These requirements are found in Chapter III, Section 2, of a specific EU regulation. This includes when the Commission is adopting technical specifications and testing standards for these AI systems."^^xsd:string .
+
+:Article_106 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/106/"^^xsd:string ;
+    :hasSummary "This article is about a change to a European Union law from 2016. The change says that when making new rules related to artificial intelligence (AI) systems that are considered safety components, the requirements from a specific section of another EU regulation must be considered. This means that when the EU is creating new AI laws, they have to think about certain safety rules that already exist."^^xsd:string .
+
+:Article_107 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/107/"^^xsd:string ;
+    :hasSummary "This article is about a change to a European Union regulation from 2018. The change means that when new rules are made about artificial intelligence (AI) systems that are used for safety, they must consider certain requirements. These requirements are outlined in a specific section of another regulation. This ensures that safety is a priority when creating AI systems."^^xsd:string .
+
+:Article_108 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/108/"^^xsd:string ;
+    :hasSummary "The EU has made changes to its 2018 regulation on artificial intelligence (AI). These changes mean that when new rules are being made about AI systems that are used for safety, the requirements in a specific section of another regulation (Regulation (EU) 2024/…) must be considered. This applies to both implementing acts (rules that help enforce laws) and delegated acts (rules that are made by someone given authority by the original law-maker). The changes affect several articles (sections) of the 2018 regulation."^^xsd:string .
+
+:Article_109 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/109/"^^xsd:string ;
+    :hasSummary "This article is about a change to a European Union regulation from 2019. It says that when new rules are being made about artificial intelligence systems that are used for safety, they need to consider the requirements listed in a specific section of another regulation. This is to ensure that these AI systems are safe and meet certain standards."^^xsd:string .
+
+:Article_11 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/11/"^^xsd:string ;
+    :hasSummary "This EU law states that before a high-risk AI system is launched, detailed technical documentation must be prepared and kept updated. This documentation should prove that the AI system meets the law's requirements and provide clear information for authorities to check compliance. It should include certain key elements. Small businesses, including start-ups, can provide this information in a simpler way. The EU will create a simplified form for this purpose. If a high-risk AI system is related to a product covered by other EU laws, one set of documentation should include all necessary information. The EU can update these requirements as technology advances."^^xsd:string .
+
+:Article_110 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/110/"^^xsd:string ;
+    :hasSummary "The European Union has made an amendment to a directive from 2020. This change adds a new point to the directive, which introduces harmonised rules on artificial intelligence. These rules also make changes to several other regulations and directives, including the Artificial Intelligence Act. This is all part of the EU's ongoing efforts to regulate artificial intelligence and protect the interests of consumers."^^xsd:string .
+
+:Article_111 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/111/"^^xsd:string ;
+    :hasSummary "This article states that AI systems already in use or on the market must comply with new regulations by the end of 2030. This includes large-scale IT systems and high-risk AI systems. If significant changes are made to these systems, they must comply with the regulations within 24 months of the changes. AI providers and deployers working with public authorities have six years to comply. General-purpose AI models on the market must comply within 36 months. In simpler terms, all AI systems and models must follow new rules within a set timeframe."^^xsd:string .
+
+:Article_112 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/112/"^^xsd:string ;
+    :hasSummary "The European Commission will review and possibly amend the list of prohibited AI practices and other related regulations annually. Every four years, it will evaluate and report on the need for amendments, the effectiveness of the supervision system, and the performance of the AI Office. It will also assess the resources of national authorities, the state of penalties, the number of new businesses entering the market, and the progress on energy-efficient AI models. The Commission will consider the positions of various bodies in its evaluations and may propose amendments based on technological developments and the impact of AI systems on health, safety, and fundamental rights."^^xsd:string .
+
+:Article_113 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/113/"^^xsd:string ;
+    :hasSummary "This article states that the regulation will become effective 20 days after it's published in the Official Journal of the European Union. Different parts of the regulation will be applied at different times: Chapters I and II will be applied six months after the regulation comes into effect, certain sections will be applied after 12 months, and Article 6(1) will be applied after 36 months. The regulation is binding and directly applicable in all EU member states."^^xsd:string .
+
+:Article_12 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/12/"^^xsd:string ;
+    :hasSummary "This article states that high-risk AI systems must have the ability to automatically record events throughout their lifespan. This is to ensure that the system's actions can be traced back, especially in situations where the AI might pose a risk or undergo significant changes. The system should also record details like when it was used, the database it checked data against, the data that matched, and who verified the results. This is to ensure accountability and safety in the use of high-risk AI systems."^^xsd:string .
+
+:Article_13 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/13/"^^xsd:string ;
+    :hasSummary "This article states that high-risk AI systems must be designed to be transparent, so that those using them can understand and use them correctly. They must come with clear instructions, including information about the provider, the system's capabilities and limitations, and any potential risks. The instructions should also explain how to interpret the system's output, any pre-determined changes to the system, and how to maintain it. If relevant, they should also describe how to collect, store and interpret data logs."^^xsd:string .
+
+:Article_14 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/14/"^^xsd:string ;
+    :hasSummary "This article states that high-risk AI systems must be designed in a way that allows humans to effectively oversee them. The goal of human oversight is to prevent or minimize risks to health, safety, or fundamental rights that may arise from using these systems. The oversight measures should match the risks and context of the AI system's use. These measures could be built into the system by the provider or implemented by the user. The AI system should be provided in a way that allows the overseer to understand its capabilities and limitations, detect and address issues, avoid over-reliance on the system, interpret its output, decide not to use it, or stop its operation. For certain high-risk AI systems, any action or decision based on the system's identification must be verified by at least two competent individuals."^^xsd:string .
+
+:Article_15 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/15/"^^xsd:string ;
+    :hasSummary "The EU AI Act states that high-risk AI systems must be designed to be accurate, robust, and secure. They should perform consistently throughout their lifecycle. The Commission will work with relevant stakeholders to develop ways to measure these qualities. The accuracy of these AI systems should be declared in their instructions. These systems should be resilient to errors and faults, and should have backup plans in place. They should also be designed to reduce the risk of biased outputs. Finally, these systems should be secure against unauthorized third parties trying to exploit their vulnerabilities."^^xsd:string .
+
+:Article_16 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/16/"^^xsd:string ;
+    :hasSummary "This article states that companies providing high-risk AI systems must follow certain rules. They must make sure their AI systems meet specific standards and display their contact information on the product or its packaging. They need to have a quality management system and keep certain documents and logs. Before selling or using the AI system, they must have it checked for compliance with regulations. They also need to mark the product with a CE marking to show it meets EU standards. They must register the product, fix any issues, provide necessary information, and prove it meets standards if asked by authorities. The AI system must also be accessible according to EU directives."^^xsd:string .
+
+:Article_17 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/17/"^^xsd:string ;
+    :hasSummary "The EU AI Act requires providers of high-risk AI systems to establish a quality management system. This system must be documented and include strategies for regulatory compliance, design and development procedures, testing and validation processes, technical specifications, data management systems, risk management, post-market monitoring, incident reporting, communication procedures, record-keeping, resource management, and an accountability framework. The implementation of these aspects should be proportionate to the size of the provider's organization. Providers already subject to quality management obligations under relevant Union law can include these aspects in their existing systems. Financial institutions can meet these requirements by complying with Union financial services law."^^xsd:string .
+
+:Article_18 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/18/"^^xsd:string ;
+    :hasSummary "This article states that providers of high-risk AI systems must keep certain documents for 10 years after the system is released. These documents include technical documentation, quality management system documentation, approved changes, decisions from notified bodies, and the EU declaration of conformity. If the provider goes bankrupt or stops its activities before the 10 years are up, each EU member state will decide how to keep these documents available. Financial institutions that are providers must keep the technical documentation as part of their documentation under Union financial services law."^^xsd:string .
+
+:Article_19 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/19/"^^xsd:string ;
+    :hasSummary "This article states that companies providing high-risk AI systems must keep automatically generated logs of these systems, as long as they have control over these logs. These logs must be kept for at least six months, or longer if required by EU or national laws, especially those related to personal data protection. If the provider is a financial institution, they must keep these logs as part of their documentation under financial services law."^^xsd:string .
+
+:Article_2 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/2/"^^xsd:string ;
+    :hasSummary "This EU regulation applies to anyone who makes, uses, imports, or distributes AI systems in the EU, regardless of where they are based. It also applies to AI systems used in the EU, even if they are made elsewhere. However, it does not apply to AI systems used for military, defense, or national security purposes, or to AI systems used by foreign public authorities or international organizations for law enforcement and judicial cooperation, provided they protect individuals' rights. The regulation also does not apply to AI systems used for scientific research and development, or to AI systems not yet on the market. It does not affect existing EU laws on data protection, privacy, and confidentiality. It also does not apply to individuals using AI systems for personal, non-professional activities, or to AI systems released under free and open-source licenses, unless they are high-risk or fall under certain articles."^^xsd:string .
+
+:Article_20 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/20/"^^xsd:string ;
+    :hasSummary "This article states that if a company providing a high-risk AI system realizes that their system is not following the rules set by the EU, they must immediately fix the issue, stop using it, or recall it. They must also inform anyone involved in distributing or using the system. If the system poses a risk, the company must investigate why and inform the authorities responsible for monitoring the AI market. They must also inform any organization that certified the system, detailing what went wrong and what they did to fix it."^^xsd:string .
+
+:Article_21 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/21/"^^xsd:string ;
+    :hasSummary "This article states that companies providing high-risk AI systems must, when asked by a relevant authority, provide all the information needed to show that their AI system meets the required standards. This information must be in a language that the authority can easily understand. If asked, these companies must also allow the authority to access automatically generated logs of the AI system, as long as they control these logs. Any information obtained by the authority must be treated confidentially."^^xsd:string .
+
+:Article_22 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/22/"^^xsd:string ;
+    :hasSummary "This article states that before launching high-risk AI systems in the EU, providers from non-EU countries must appoint a representative within the EU. This representative is responsible for ensuring that the AI system complies with EU regulations, keeping records for 10 years, providing necessary information to authorities, cooperating with authorities in managing risks, and ensuring registration obligations are met. If the provider fails to meet its obligations, the representative can terminate the agreement and must inform the relevant authorities."^^xsd:string .
+
+:Article_23 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/23/"^^xsd:string ;
+    :hasSummary "This article states that before selling a high-risk AI system, importers must ensure it meets all regulations. This includes checking that the system has passed the necessary assessments, has the correct documentation, and is marked with the CE symbol. If the importer suspects the system doesn't meet regulations or has fake documentation, they must not sell it until it complies. Importers must also provide their contact details on the system or its packaging, ensure it's stored and transported safely, and keep a record of its certification and instructions for 10 years. They must also cooperate with authorities if needed."^^xsd:string .
+
+:Article_24 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/24/"^^xsd:string ;
+    :hasSummary "This article states that before selling a high-risk AI system, distributors must ensure it meets certain standards, including having a CE marking and a copy of the EU declaration of conformity. If the distributor believes the AI system doesn't meet these standards, they can't sell it until it does. They also need to ensure that the AI system remains compliant during storage or transport. If a sold AI system is found to be non-compliant, the distributor must correct it, withdraw it, or recall it. They must also cooperate with authorities and provide any requested information about the AI system."^^xsd:string .
+
+:Article_25 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/25/"^^xsd:string ;
+    :hasSummary "This article states that anyone who distributes, imports, deploys, or modifies a high-risk AI system is considered a provider of that system and must follow certain regulations. This includes putting their name on an existing system, making significant changes to a system, or altering the purpose of a system to make it high-risk. The original provider of the system must cooperate with the new provider and provide necessary information and technical access. However, this doesn't apply if the original provider specified that their system shouldn't be changed into a high-risk system. The article also states that the manufacturer of a product that includes a high-risk AI system is considered the provider of that system. Finally, the provider of a high-risk AI system and any third party that supplies components for that system must agree in writing on the necessary information and technical access. This doesn't apply to third parties that provide tools or components under a free and open-source license. The AI Office may develop voluntary contract terms for these situations. The article also emphasizes the need to protect intellectual property rights and trade secrets."^^xsd:string .
+
+:Article_26 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/26/"^^xsd:string ;
+    :hasSummary "This article outlines the responsibilities of those who deploy high-risk AI systems. These include using the systems as per instructions, assigning human oversight, ensuring input data is relevant, and monitoring the system's operation. If a risk is identified, the provider and relevant authorities must be informed immediately. Deployers must also keep logs generated by the AI system for at least six months. Before using a high-risk AI system, workers must be informed. If the system is not registered in the EU database, it should not be used. Deployers must also comply with data protection assessments and cooperate with relevant authorities."^^xsd:string .
+
+:Article_27 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/27/"^^xsd:string ;
+    :hasSummary "Before using a high-risk AI system, public bodies and private entities providing public services must assess how the system could impact people's fundamental rights. This includes describing how and when the system will be used, who it might affect, and what risks it might pose. They also need to outline how humans will oversee the system and what steps will be taken if risks materialize. This assessment must be done for the first use of the system, but can be updated if necessary. The results must be reported to the market surveillance authority, unless exempt. The AI Office will provide a template to help with this process."^^xsd:string .
+
+:Article_28 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/28/"^^xsd:string ;
+    :hasSummary "The EU AI Act states that each member country must have at least one authority responsible for assessing and monitoring AI conformity assessment bodies. These authorities must work together across all member states. Countries can choose to have this done by a national accreditation body. These authorities must be impartial and free from conflicts of interest. Decisions must be made by different people than those who did the assessments. These authorities can't offer the same services as the assessment bodies or provide consultancy services. They must keep information confidential and have enough skilled staff in areas like IT, AI, and law."^^xsd:string .
+
+:Article_29 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/29/"^^xsd:string ;
+    :hasSummary "This article explains that organizations that assess AI systems for compliance with EU standards must apply to the relevant authority in the country where they are based. They must provide details about their assessment activities, the types of AI systems they can evaluate, and any relevant accreditation. If they don't have accreditation, they must provide other evidence to show they meet the necessary requirements. If they are already recognized under other EU laws, they can use those credentials to support their application. They must also keep their documentation up to date to show ongoing compliance."^^xsd:string .
+
+:Article_3 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/3/"^^xsd:string ;
+    :hasSummary "This article provides definitions for various terms related to artificial intelligence (AI) systems. An AI system is a machine-based system that can operate autonomously and adapt after deployment, generating outputs like predictions or decisions. A provider is a person or entity that develops an AI system and places it on the market. A deployer is a person or entity that uses an AI system. Other terms defined include importer, distributor, operator, and authorised representative. The article also defines terms related to data used in AI systems, such as training data, validation data, and testing data. It also covers terms related to the regulation and monitoring of AI systems, such as conformity assessment, market surveillance authority, and AI regulatory sandbox."^^xsd:string .
+
+:Article_30 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/30/"^^xsd:string ;
+    :hasSummary "This article explains the process for notifying authorities about AI systems in the EU. Authorities can only notify assessment bodies that meet certain requirements. They must use a specific electronic tool to notify the Commission and other member states about each assessment body. The notification must include detailed information about the AI system and proof of the assessment body's competence. If no objections are raised within a certain time frame, the assessment body can start its activities. If there are objections, the Commission will consult with relevant parties and decide if the authorization is justified."^^xsd:string .
+
+:Article_31 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/31/"^^xsd:string ;
+    :hasSummary "The EU AI Act states that notified bodies, which assess high-risk AI systems, must be established under a member state's national law and have legal personality. They must meet certain organizational, quality management, resource, and cybersecurity requirements. They must be independent of the AI system provider and any other operator with an economic interest in the AI system. They must also maintain confidentiality and take into account the size and complexity of the provider and the AI system. They must have liability insurance and be capable of carrying out their tasks with professional integrity and competence."^^xsd:string .
+
+:Article_32 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/32/"^^xsd:string ;
+    :hasSummary "This article states that if a body assessing AI systems can show it meets the criteria set out in the relevant EU standards, it will be assumed to also meet the requirements of Article 31. This is as long as the standards it follows cover the same requirements as Article 31. The references to these standards are published in the Official Journal of the European Union."^^xsd:string .
+
+:Article_33 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/33/"^^xsd:string ;
+    :hasSummary "This article states that if a notified body (an organization responsible for checking that products meet certain standards) outsources tasks or uses a subsidiary company, it must ensure that these parties meet the required standards and inform the relevant authority. The notified body is fully responsible for the work done by these parties. Such outsourcing or use of subsidiaries can only happen with the provider's agreement. The notified body must also make a list of their subsidiaries public. All documents related to the qualifications and work of these parties must be kept for five years after the subcontracting ends."^^xsd:string .
+
+:Article_34 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/34/"^^xsd:string ;
+    :hasSummary "This article states that notified bodies (officially recognized organizations) must check that high-risk AI systems meet the standards outlined in Article 43. They should avoid causing unnecessary work for providers and consider factors like the provider's size, sector, structure, and the complexity of the AI system. They should especially try to reduce administrative work and compliance costs for small businesses. However, they must still ensure the AI system meets the necessary safety standards. These bodies must also provide all relevant documents to the notifying authority (the body that oversees them) when asked, to help with assessments and monitoring."^^xsd:string .
+
+:Article_35 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/35/"^^xsd:string ;
+    :hasSummary "The European Commission will give each approved organization (notified body) a unique ID number, even if the organization is recognized under multiple EU laws. The Commission will also publish a list of these organizations, including their ID numbers and what they do. This list will be kept current."^^xsd:string .
+
+:Article_36 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/36/"^^xsd:string ;
+    :hasSummary "This article explains the procedures for changes to notifications about AI systems. If a body that assesses AI systems decides to stop its activities, it must inform the relevant authorities and providers. Its certificates may remain valid for nine months if another body takes over its responsibilities. If a body fails to meet requirements or obligations, the notifying authority can restrict, suspend or withdraw its designation. If a body's designation is suspended or withdrawn, it must inform the providers and the authority must ensure the body's files are kept and assess the impact on the certificates issued."^^xsd:string .
+
+:Article_37 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/37/"^^xsd:string ;
+    :hasSummary "The EU Commission will investigate any doubts about the abilities or qualifications of notified bodies (organizations that assess the conformity of certain products before they are sold in the EU). If the Commission finds that a notified body doesn't meet the necessary requirements, it will ask the relevant EU country to fix the issue, which could include suspending or withdrawing the body's notification. If the country doesn't take action, the Commission can suspend, restrict, or withdraw the body's designation. All sensitive information gathered during these investigations will be kept confidential."^^xsd:string .
+
+:Article_38 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/38/"^^xsd:string ;
+    :hasSummary "This article states that the Commission will ensure that organizations responsible for checking the safety of high-risk AI systems work together effectively. This will be done through a special group made up of these organizations. Each authority that notifies these organizations must ensure they participate in this group, either directly or through representatives. The Commission will also facilitate the sharing of knowledge and best practices among these authorities."^^xsd:string .
+
+:Article_39 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/39/"^^xsd:string ;
+    :hasSummary "This section says that organizations from countries outside the EU, which have an agreement with the EU, can be allowed to perform the duties of notified bodies under this regulation. However, they must either meet the requirements set out in Article 31 or ensure they follow rules that are equivalent. In simpler terms, these organizations can do the job, but they must follow the same or similar rules as EU organizations."^^xsd:string .
+
+:Article_4 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/4/"^^xsd:string ;
+    :hasSummary "This article states that companies that create and use AI systems must make sure their employees and anyone else who operates or uses these systems on their behalf are well-educated about AI. This includes considering their technical knowledge, experience, education, and training, as well as the context in which the AI systems will be used and the people or groups who will be using them."^^xsd:string .
+
+:Article_40 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/40/"^^xsd:string ;
+    :hasSummary "This article states that high-risk AI systems or general-purpose AI models that comply with certain standards will be considered in line with the requirements of this regulation. The Commission will issue standardisation requests to cover all requirements and obligations of this regulation. These requests will also ask for improvements in AI systems' resource performance, such as reducing energy consumption. The Commission will consult with the Board and relevant stakeholders when preparing these requests. The aim is to promote investment and innovation in AI, increase legal certainty, and enhance competitiveness and growth in the Union market."^^xsd:string .
+
+:Article_41 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/41/"^^xsd:string ;
+    :hasSummary "The EU Commission can create common rules for AI systems if certain conditions are met, such as if European standardisation organisations don't accept a request to create a standard, or if the standards created don't address fundamental rights concerns. If AI systems meet these common rules, they are assumed to meet the requirements of the law. If they don't, they must prove they meet the requirements in another way. If a member state thinks the common rules don't meet the requirements, they can ask the Commission to change them."^^xsd:string .
+
+:Article_42 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/42/"^^xsd:string ;
+    :hasSummary "This article basically says that high-risk AI systems that have been trained and tested on data specific to their intended use are assumed to meet certain requirements. Also, if these AI systems have been certified or have a statement of conformity under a cybersecurity scheme, they are assumed to meet the cybersecurity requirements, as long as the certificate or statement covers those requirements."^^xsd:string .
+
+:Article_43 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/43/"^^xsd:string ;
+    :hasSummary "This article discusses the process of assessing whether high-risk AI systems meet certain standards. If a provider has used certain standards in creating their AI system, they must choose one of two assessment procedures. If the provider hasn't used these standards, or only used part of them, they must follow a specific assessment procedure. If the AI system is for law enforcement or immigration authorities, a market surveillance authority will act as the assessment body. The article also states that if an AI system is significantly modified, it must undergo a new assessment. The Commission can update these procedures as technology advances."^^xsd:string .
+
+:Article_44 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/44/"^^xsd:string ;
+    :hasSummary "This article states that certificates for AI systems must be written in a language that can be easily understood by the relevant authorities in the country where the certificate is issued. These certificates are valid for up to five years for certain AI systems, and four years for others. They can be extended upon request, but only after a re-assessment. If an AI system no longer meets the necessary requirements, the certificate can be suspended or withdrawn, unless the provider takes corrective action. There must also be an appeal process for decisions made about these certificates."^^xsd:string .
+
+:Article_45 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/45/"^^xsd:string ;
+    :hasSummary "This article states that notified bodies (organizations that assess the conformity of certain products before they are sold in the EU) must inform the notifying authority about any certificates, approvals, or changes related to their assessments. They also need to share information about any requests they receive from market surveillance authorities. Additionally, they must inform other notified bodies about any approvals or certificates they have issued, refused, suspended, or withdrawn. They should also share information about negative and positive assessment results with similar bodies. However, they must keep all this information confidential."^^xsd:string .
+
+:Article_46 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/46/"^^xsd:string ;
+    :hasSummary "This article allows for exceptions to the usual approval process for high-risk AI systems. If there's a justified reason, such as public safety or environmental protection, a market surveillance authority can allow these systems to be used for a limited time while they're being assessed. In urgent situations, law enforcement or civil protection authorities can use these systems without prior approval, as long as they request it soon after. If approval is denied, the system must be stopped and its results discarded. The EU Commission and other member states must be informed of any approvals, and if no objections are raised within 15 days, the approval is considered justified. If objections are raised, the Commission will consult with the relevant parties and decide if the approval is justified. If it's not, the approval must be withdrawn."^^xsd:string .
+
+:Article_47 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/47/"^^xsd:string ;
+    :hasSummary "The EU AI Act requires providers of high-risk AI systems to create a written declaration of conformity for each system. This document, which can be physical or electronic, must be kept available for national authorities for 10 years after the system is launched. The declaration must identify the AI system and confirm that it meets certain requirements. It must also be translated into a language that the authorities can understand. If the AI system is subject to other EU laws, a single declaration covering all applicable laws is required. The provider is responsible for ensuring the declaration is kept up-to-date. The Commission can update the declaration's content as needed."^^xsd:string .
+
+:Article_48 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/48/"^^xsd:string ;
+    :hasSummary "This article states that the CE marking, which shows a product meets EU safety standards, must be clearly visible on high-risk AI systems. If it can't be physically placed on the system, it should be on the packaging or documentation. For digital AI systems, a digital CE marking should be easily accessible. If a notified body (an organization that checks the product meets the standards) is involved, their identification number should be included next to the CE marking. If the AI system is also subject to other EU laws requiring a CE marking, the marking indicates it meets those requirements too."^^xsd:string .
+
+:Article_49 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/49/"^^xsd:string ;
+    :hasSummary "This article states that before any high-risk AI system is launched or used, the provider or their representative must register themselves and their system in the EU database. This also applies to AI systems that the provider has determined are not high-risk. Public authorities or institutions using high-risk AI systems must also register themselves and the system's use in the EU database. Certain high-risk AI systems used in law enforcement, migration, and border control must be registered in a secure, non-public section of the EU database. Only the Commission and national authorities can access this section."^^xsd:string .
+
+:Article_5 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/5/"^^xsd:string ;
+    :hasSummary "The EU AI Act prohibits certain uses of artificial intelligence (AI). These include AI systems that manipulate people's decisions or exploit their vulnerabilities, systems that evaluate or classify people based on their social behavior or personal traits, and systems that predict a person's risk of committing a crime. The Act also bans AI systems that scrape facial images from the internet or CCTV footage, infer emotions in the workplace or educational institutions, and categorize people based on their biometric data. However, some exceptions are made for law enforcement purposes, such as searching for missing persons or preventing terrorist attacks."^^xsd:string .
+
+:Article_50 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/50/"^^xsd:string ;
+    :hasSummary "This article states that companies must inform users when they are interacting with an AI system, unless it's obvious or the AI is used for legal purposes like crime detection. AI systems that create synthetic content (like deepfakes) must mark their outputs as artificially generated. Companies must also inform users when they use AI for emotion recognition or biometric categorisation, unless it's for legal purposes. If an AI system creates or alters content, the company must disclose this, unless it's for legal purposes or the content is artistic or satirical. The AI Office will help create guidelines for detecting and labelling artificially generated content."^^xsd:string .
+
+:Article_51 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/51/"^^xsd:string ;
+    :hasSummary "This article explains how an AI model is classified as having systemic risk. If the AI model has high impact capabilities, determined by technical tools and benchmarks, or if it has similar capabilities or impact as decided by the Commission, it is considered to have systemic risk. If the AI model uses a large amount of computation for its training, it is assumed to have high impact capabilities. The Commission can change these rules to keep up with technological advancements."^^xsd:string .
+
+:Article_52 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/52/"^^xsd:string ;
+    :hasSummary "This article states that if a general AI model meets certain conditions, the provider must inform the Commission within two weeks. The Commission can then decide if the AI model poses systemic risks. If the provider argues that the AI model doesn't pose such risks, the Commission can reject these arguments if they're not convincing. The Commission can also designate an AI model as risky based on certain criteria. If a provider disagrees with this designation, they can request a reassessment after six months. The Commission will maintain a list of risky AI models, while respecting intellectual property rights and business confidentiality."^^xsd:string .
+
+:Article_53 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/53/"^^xsd:string ;
+    :hasSummary "This article states that companies who create general-purpose AI models must keep detailed records of their AI's development and testing. They must also provide this information to other companies who want to use their AI, while still protecting their intellectual property. However, this doesn't apply to AI models that are open-source and freely available to the public, unless they pose systemic risks. These companies must also cooperate with the EU Commission and national authorities. They can use approved codes of practice to show they're following the rules, until a standard is published. The Commission can also update these rules as technology evolves."^^xsd:string .
+
+:Article_54 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/54/"^^xsd:string ;
+    :hasSummary "Before selling a general-purpose AI model in the EU, companies from outside the EU must appoint a representative within the EU. This representative is responsible for ensuring the AI model meets all EU regulations, keeping a copy of the technical documentation for 10 years, providing any necessary information to the AI Office, and cooperating with the AI Office and other authorities. If the company doesn't follow the rules, the representative must end their agreement and inform the AI Office. This rule doesn't apply to AI models that are free, open-source, and publicly available, unless they pose systemic risks."^^xsd:string .
+
+:Article_55 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/55/"^^xsd:string ;
+    :hasSummary "This article states that providers of general-purpose AI models with systemic risk must follow certain rules. They must evaluate their models using standard protocols, identify and reduce systemic risks, and report any serious incidents to the AI Office and national authorities. They must also ensure their AI models and infrastructure are secure. Providers can use codes of practice to show they are following these rules until a standard is published. If they don't follow an approved code or standard, they must show they are complying in another way. Any information obtained must be kept confidential."^^xsd:string .
+
+:Article_56 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/56/"^^xsd:string ;
+    :hasSummary "The EU's AI Office is tasked with creating guidelines for the use of artificial intelligence (AI) across the Union. These guidelines will cover how to keep AI information up-to-date, how to describe the data used to train AI, and how to identify and manage potential risks. The AI Office will invite AI providers, authorities, and other stakeholders to help create these guidelines. The guidelines will have clear goals and ways to measure success. The AI Office will monitor how well these guidelines are followed and may approve them for use across the EU. If the guidelines are not ready or adequate within a year, the Commission may create common rules."^^xsd:string .
+
+:Article_57 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/57/"^^xsd:string ;
+    :hasSummary "The EU is requiring member states to create at least one \"AI regulatory sandbox\" at a national level. These sandboxes are controlled environments where AI systems can be developed, tested, and validated before being released to the market. The goal is to foster innovation while identifying and mitigating any risks, particularly those related to fundamental rights, health, and safety. The sandboxes will also provide guidance on regulatory expectations and requirements. If an AI system is successfully tested in a sandbox, the provider can use this as proof of compliance with regulations. The sandboxes are also intended to facilitate cross-border cooperation and share best practices."^^xsd:string .
+
+:Article_58 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/58/"^^xsd:string ;
+    :hasSummary "The EU is setting up AI regulatory sandboxes to test and develop AI systems. These sandboxes will be open to any provider who meets the eligibility criteria. The process for applying, participating, and exiting the sandbox will be simple and clearly communicated. Access to the sandboxes will be free for small businesses and start-ups. The sandboxes will also help providers comply with regulations and encourage cooperation with other actors in the AI ecosystem. The duration of participation in the sandbox will depend on the complexity of the project. The sandboxes will also facilitate the development of tools for testing and assessing AI systems."^^xsd:string .
+
+:Article_59 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/59/"^^xsd:string ;
+    :hasSummary "The EU AI Act allows for the use of personal data in a controlled environment, known as a regulatory sandbox, for the development, training, and testing of AI systems. This is only permitted if the AI system is being developed for the public interest, such as public safety, health, environmental protection, energy sustainability, transport safety, and public administration. The data must be necessary, risks must be monitored and mitigated, and the data must be kept separate and secure. The data cannot be shared outside the sandbox and must be deleted once the project is finished. The process and results must be documented and a summary published, unless it involves sensitive law enforcement data."^^xsd:string .
+
+:Article_6 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/6/"^^xsd:string ;
+    :hasSummary "This article outlines how to classify high-risk AI systems. An AI system is considered high-risk if it is used as a safety component of a product, or if it is a product itself, that is covered by EU legislation in Annex I. AI systems of the types listed in Annex III are always considered high-risk, unless they don't pose a significant risk to people's health, safety, or rights. Providers who believe their AI system isn't high-risk must document their assessment before selling or using it. The EU Commission will provide guidelines and examples of high-risk and non-high-risk AI systems. They can also add or remove conditions for high-risk classification based on evidence. Any changes must not decrease the level of protection for health, safety, and rights."^^xsd:string .
+
+:Article_60 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/60/"^^xsd:string ;
+    :hasSummary "This article discusses the rules for testing high-risk AI systems in real-world conditions. Companies that want to test these systems must submit a testing plan to the relevant authority in the EU member state where the testing will take place. If the authority doesn't respond within 30 days, the plan is considered approved. The testing can't last longer than six months, but it can be extended for another six months if necessary. The companies must also ensure that the testing doesn't harm vulnerable groups and that any data collected is properly protected. If any serious incidents occur during testing, they must be reported and the testing must be suspended until the issue is resolved."^^xsd:string .
+
+:Article_61 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/61/"^^xsd:string ;
+    :hasSummary "This article states that before testing AI in real-world conditions, the people being tested must give their informed consent. They should be clearly informed about what the test involves, how long it will last, and any potential inconveniences. They should also be told about their rights, including the right to refuse or withdraw from the test at any time without penalty. They should also be informed about how to challenge the AI's decisions. The consent must be dated and documented, and a copy given to the person being tested or their legal representative."^^xsd:string .
+
+:Article_62 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/62/"^^xsd:string ;
+    :hasSummary "The EU is asking member states to support small and medium-sized businesses (SMEs), including start-ups, in understanding and complying with new AI regulations. This includes giving these businesses priority access to AI regulatory sandboxes (safe spaces to test new AI technologies), providing training on the new rules, and offering advice through dedicated communication channels. The EU also wants to make it easier for these businesses to participate in the development of AI standards. The cost of assessing whether a business complies with the rules will be set according to its size and market size. The AI Office will provide templates, a single information platform, and communication campaigns to help businesses understand their obligations."^^xsd:string .
+
+:Article_63 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/63/"^^xsd:string ;
+    :hasSummary "This article states that small businesses (microenterprises) can follow a simplified version of the quality management system required by the Act, as long as they don't have partner or linked businesses. The Commission will create guidelines for this. However, this doesn't mean these businesses are exempt from other requirements or obligations in the Act, including those in Articles 9, 10, 11, 12, 13, 14, 15, 72 and 73. This is to ensure that the level of protection and compliance with high-risk AI systems is not compromised."^^xsd:string .
+
+:Article_64 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/64/"^^xsd:string ;
+    :hasSummary "The EU is creating an \"AI Office\" to improve its knowledge and skills in artificial intelligence (AI). This office will be supported by the member countries of the EU, who will help it carry out its duties as outlined in the regulations."^^xsd:string .
+
+:Article_65 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/65/"^^xsd:string ;
+    :hasSummary "The European Union is setting up a European Artificial Intelligence Board. Each EU member country will have a representative on the board, serving for three years. The board will also include observers from the European Data Protection Supervisor and the AI Office. The board can invite other experts to meetings as needed. The representatives will be responsible for coordinating AI regulation in their home countries and will adopt the board's rules by a two-thirds majority. The board will also have two sub-groups to discuss market surveillance and notifying authorities. The board will be chaired by a representative from one of the member states."^^xsd:string .
+
+:Article_66 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/66/"^^xsd:string ;
+    :hasSummary "The Board's role, as outlined in Article 66 of the EU AI Act, is to assist and advise the Commission and Member States in applying the regulation effectively and consistently. This includes coordinating with national authorities, sharing expertise and best practices, advising on the enforcement of rules on AI models, and harmonising administrative practices. The Board can also issue recommendations on relevant matters, support the Commission in promoting AI literacy, facilitate the development of common criteria, cooperate with other Union institutions, and assist in developing the necessary expertise for implementing the regulation."^^xsd:string .
+
+:Article_67 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/67/"^^xsd:string ;
+    :hasSummary "The EU AI Act will establish an advisory forum to provide technical expertise and advice to the Board and the Commission. The forum will include a balanced mix of stakeholders from industry, start-ups, SMEs, civil society, and academia. The Commission will appoint members with recognized AI expertise. Members will serve for two years, with the possibility of a four-year extension. Certain organizations will be permanent members. The forum will create its own rules, elect two co-chairs, and meet at least twice a year. It can prepare opinions, recommendations, and establish sub-groups. An annual report on its activities will be publicly available."^^xsd:string .
+
+:Article_68 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/68/"^^xsd:string ;
+    :hasSummary "The EU is setting up a panel of independent experts to help enforce its AI regulations. The panel will be made up of experts chosen by the Commission, who have up-to-date knowledge in AI and are independent from any AI system providers. They will support the AI Office by alerting them to potential risks, helping develop evaluation tools, and advising on the classification of AI models. The experts will work impartially and confidentially, and will not take instructions from anyone. They will also have to declare any interests to avoid conflicts. The Commission will decide the number of experts needed and ensure fair representation."^^xsd:string .
+
+:Article_69 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/69/"^^xsd:string ;
+    :hasSummary "This article states that member countries can ask for help from a panel of experts to enforce the rules of the Act. These countries might have to pay for this advice, with the cost structure detailed in another part of the Act. The fees will consider the need for effective implementation, cost-effectiveness, and ensuring all countries can access the experts. The European Commission will help countries access these experts in a timely manner and ensure that the support provided is well-organized and valuable."^^xsd:string .
+
+:Article_7 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/7/"^^xsd:string ;
+    :hasSummary "The EU Commission can change the list of high-risk AI systems if they meet certain conditions. These include being used in areas already listed as high-risk, and posing a health, safety, or rights risk equal to or greater than current high-risk systems. The Commission will consider factors like the AI's purpose, how much it's used, the data it processes, its autonomy, any previous harm caused, potential harm, and the ability to correct or reverse outcomes. The Commission can also remove systems from the list if they no longer pose significant risks and their removal doesn't decrease overall protection levels."^^xsd:string .
+
+:Article_70 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/70/"^^xsd:string ;
+    :hasSummary "This article states that each EU member state must establish or designate at least one authority to oversee the implementation of the AI regulation. These authorities must operate independently and without bias. They must also have sufficient resources and expertise in AI technologies, data protection, cybersecurity, and other relevant areas. Member states must inform the Commission about these authorities and make their contact information publicly available. The authorities are also responsible for ensuring cybersecurity and confidentiality. They must report to the Commission every two years on their resources and can provide guidance on the regulation, particularly to small businesses and startups."^^xsd:string .
+
+:Article_71 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/71/"^^xsd:string ;
+    :hasSummary "The European Commission, in partnership with member states, will create and maintain a database of high-risk AI systems. This database will include information about both high-risk and non-high-risk AI systems. The data will be provided by the AI system provider or their representative, or by the public authority deploying the system. Most of the information in the database will be publicly available and user-friendly. However, some information will only be accessible to market surveillance authorities and the Commission, unless the provider consents to public access. The database will only contain personal data necessary for its operation. The Commission will manage the database and provide technical and administrative support."^^xsd:string .
+
+:Article_72 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/72/"^^xsd:string ;
+    :hasSummary "The EU AI Act requires providers of high-risk AI systems to establish a post-market monitoring system. This system should collect and analyze data on the performance of these AI systems throughout their lifetime, ensuring they continue to comply with regulations. The monitoring system should be based on a plan that is part of the technical documentation. The EU Commission will provide a template for this plan. If a monitoring system is already in place under other legislation, providers can integrate the necessary elements from this new requirement, as long as it provides the same level of protection."^^xsd:string .
+
+:Article_73 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/73/"^^xsd:string ;
+    :hasSummary "This article states that companies who provide high-risk AI systems must report any serious incidents to the authorities in the country where the incident occurred. They must do this as soon as they know there's a link between their AI system and the incident, or if there's a good chance there is a link. They must report within 15 days of finding out about the incident. If the incident is very serious or widespread, they must report it within two days. If someone dies, they must report it within 10 days. They can submit an initial incomplete report if needed, but must follow up with a full report. They must also investigate the incident and work with authorities. The authorities will then take appropriate action within seven days."^^xsd:string .
+
+:Article_74 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/74/"^^xsd:string ;
+    :hasSummary "This article outlines the rules for market surveillance and control of AI systems in the EU. It states that AI systems are subject to the same regulations as other economic products. Market surveillance authorities must report annually to the Commission and national competition authorities about any potential issues or prohibited practices. High-risk AI systems are subject to additional scrutiny, especially those used by financial institutions or for law enforcement purposes. The authorities can also propose joint activities to promote compliance and identify non-compliance. They can access the source code of high-risk AI systems under certain conditions."^^xsd:string .
+
+:Article_75 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/75/"^^xsd:string ;
+    :hasSummary "This article states that if an AI system is based on a general-purpose AI model and both are developed by the same provider, the AI Office has the power to monitor and ensure that the AI system complies with the regulations. If authorities believe that a general-purpose AI system, which can be used for high-risk purposes, is not complying with regulations, they must work with the AI Office to evaluate compliance. If an authority can't complete its investigation due to lack of information, it can request access to that information from the AI Office."^^xsd:string .
+
+:Article_76 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/76/"^^xsd:string ;
+    :hasSummary "This article states that market surveillance authorities are responsible for ensuring that AI systems are tested in real-world conditions according to regulations. If an AI system is being tested within a regulatory sandbox, the authorities must verify compliance with certain articles. If there's a serious incident or if the conditions of the articles are not met, the authorities can suspend or terminate the testing, or require modifications. If a decision is made to suspend or modify testing, the reasons must be communicated to the provider and to authorities in other member states where the AI system has been tested."^^xsd:string .
+
+:Article_77 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/77/"^^xsd:string ;
+    :hasSummary "This article states that national authorities who oversee the respect of fundamental rights, including non-discrimination, in relation to high-risk AI systems, can request and access any relevant documentation. This is to ensure they can effectively fulfill their duties. Each EU member state must identify these authorities and make a public list within three months of this regulation coming into effect. If the documentation is insufficient to determine if there's been a breach of fundamental rights, the authority can request testing of the AI system. Any information obtained must be treated confidentially."^^xsd:string .
+
+:Article_78 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/78/"^^xsd:string ;
+    :hasSummary "The EU AI Act states that all parties involved in applying the regulation must respect the confidentiality of information and data they obtain. This includes protecting intellectual property rights and trade secrets. They can only request data necessary for assessing the risk of AI systems and must have cybersecurity measures in place to protect this information. The data must be deleted once it's no longer needed. Information exchanged confidentially cannot be disclosed without prior consultation. The Act doesn't affect the rights or obligations of the Commission, Member States, and their authorities to exchange information and issue warnings."^^xsd:string .
+
+:Article_79 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/79/"^^xsd:string ;
+    :hasSummary "This article outlines the procedure for dealing with AI systems that pose a risk to health, safety, or fundamental rights. If a member state's market surveillance authority believes an AI system presents such a risk, it must evaluate the system's compliance with regulations. If the system is found non-compliant, the authority can require the operator to correct the issue, withdraw the system from the market, or recall it. If the operator fails to take corrective action, the authority can prohibit or restrict the system's availability. The authority must also inform the Commission and other member states about non-compliant systems and any actions taken."^^xsd:string .
+
+:Article_8 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/8/"^^xsd:string ;
+    :hasSummary "This article states that high-risk AI systems must meet certain standards, considering their purpose and the current state of AI technology. If a product contains an AI system, the providers must ensure it meets all relevant EU regulations. To avoid unnecessary duplication and extra work, providers can choose to incorporate necessary testing, reporting, and documentation into existing procedures required by EU legislation."^^xsd:string .
+
+:Article_80 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/80/"^^xsd:string ;
+    :hasSummary "This article explains what happens if an AI system, which was classified as non-high-risk by its provider, is suspected to be high-risk by a market surveillance authority. The authority will evaluate the system and if it is indeed high-risk, the provider will be asked to make necessary changes to comply with regulations. If the system is used beyond the authority's national territory, other member states and the Commission will be informed. If the provider fails to comply within a given time, they may be fined. The provider must also take corrective action for all such systems in the market. If the system was intentionally misclassified to avoid regulations, the provider will be fined. The authorities can perform checks to monitor compliance."^^xsd:string .
+
+:Article_81 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/81/"^^xsd:string ;
+    :hasSummary "This article explains a safeguard procedure. If a member state or the Commission objects to an AI-related measure taken by another member state, the Commission will review the measure. If the Commission finds the measure justified, all member states must take appropriate actions, such as removing the AI system from their market. If the measure is unjustified, the member state must withdraw it. If the AI system's non-compliance is due to shortcomings in standards or specifications, a specific procedure will be applied."^^xsd:string .
+
+:Article_82 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/82/"^^xsd:string ;
+    :hasSummary "This article states that if a high-risk AI system, despite being compliant with regulations, is found to pose a risk to people's health, safety, or rights, the relevant authority must ensure the risk is eliminated before the system is launched. The AI system's provider must take corrective action within a set timeframe. If such a risk is found, the member state must inform the Commission and other member states, providing details about the AI system and the risk. The Commission will then consult with the concerned parties, evaluate the measures taken, and decide if further action is needed."^^xsd:string .
+
+:Article_83 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/83/"^^xsd:string ;
+    :hasSummary "This article states that if a company doesn't follow certain rules, such as not correctly marking their product or not registering it in the EU database, the authorities can ask them to fix these issues within a certain time frame. If the company doesn't comply, the authorities can take further action, like restricting or banning the product from the market, or making sure it's recalled or removed from the market immediately."^^xsd:string .
+
+:Article_84 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/84/"^^xsd:string ;
+    :hasSummary "The European Commission will appoint one or more organizations to test and support AI systems in the EU, as outlined in a previous regulation. These organizations will also offer independent technical or scientific advice to the AI Board, the Commission, or market monitoring authorities when asked."^^xsd:string .
+
+:Article_85 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/85/"^^xsd:string ;
+    :hasSummary "This part of the EU AI Act says that any individual or organization who believes that the rules of this Act have been broken can file a complaint with the appropriate market surveillance authority. This authority will then consider the complaint when they are monitoring the market. The way they handle these complaints will follow specific procedures that the authority has set up."^^xsd:string .
+
+:Article_86 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/86/"^^xsd:string ;
+    :hasSummary "This article states that if a decision is made about a person using a high-risk AI system, and that decision has a significant impact on the person's health, safety, or basic rights, the person has the right to a clear explanation of how the AI system was involved in the decision-making process. However, this doesn't apply if there are exceptions or restrictions in Union or national law. This right is only applicable if it's not already provided for under Union law."^^xsd:string .
+
+:Article_87 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/87/"^^xsd:string ;
+    :hasSummary "This article is about reporting any violations of the AI Act and protecting those who report these violations. It refers to a previous EU directive from 2019, which sets out the rules for this. In simple terms, if someone breaks the rules of the AI Act, you can report it. And if you do report it, you will be protected under EU law."^^xsd:string .
+
+:Article_88 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/88/"^^xsd:string ;
+    :hasSummary "This article states that the European Commission has the sole authority to oversee and enforce rules related to general-purpose AI models. The AI Office will carry out these tasks, but this doesn't affect the Commission's organizational powers or the division of responsibilities between EU countries. Additionally, market surveillance authorities can ask the Commission to use its powers to help them fulfill their duties under this regulation, if necessary and appropriate."^^xsd:string .
+
+:Article_89 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/89/"^^xsd:string ;
+    :hasSummary "The AI Office has the power to monitor how well companies using general-purpose AI models are following the rules set out in this Regulation. This includes checking if they're sticking to approved codes of practice. Companies that use these AI models (downstream providers) can also complain if they think the rules have been broken. They need to provide details about who they're complaining about, what they think has gone wrong, which part of the Regulation has been breached, and why they believe this. They can also include any other relevant information they've found themselves."^^xsd:string .
+
+:Article_9 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/9/"^^xsd:string ;
+    :hasSummary "The EU AI Act requires a risk management system for high-risk AI systems. This system should be a continuous process throughout the AI's lifecycle, regularly reviewed and updated. It should identify and analyze potential risks to health, safety, or fundamental rights, estimate and evaluate these risks, and adopt measures to manage them. These measures should balance minimizing risks and fulfilling requirements. The system should also ensure that any remaining risk is acceptable and that measures are in place to eliminate or reduce risks as much as possible. High-risk AI systems should be tested to identify the best risk management measures and to ensure they work as intended. The system should also consider whether the AI could negatively impact people under 18 or other vulnerable groups."^^xsd:string .
+
+:Article_90 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/90/"^^xsd:string ;
+    :hasSummary "This article explains that a scientific panel can raise an alert to the AI Office if they suspect a general-purpose AI model poses a significant risk at a Union level, or if it meets certain conditions. If such an alert is raised, the Commission can use its powers to assess the situation. The AI Office must inform the Board of any actions taken. The alert must be well-reasoned and include contact information of the AI model provider, a description of the relevant facts and reasons for the alert, and any other relevant information."^^xsd:string .
+
+:Article_91 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/91/"^^xsd:string ;
+    :hasSummary "This article states that the European Commission can ask for documents or information from the provider of a general AI model to check if they are following the rules. Before asking for this information, the AI Office may have a structured conversation with the provider. If the scientific panel has a good reason, they can also ask the Commission to request information. The request must clearly state why the information is needed, what information is needed, when it should be provided, and the penalties for providing false or misleading information. The provider, or their representative, must provide the requested information."^^xsd:string .
+
+:Article_92 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/92/"^^xsd:string ;
+    :hasSummary "The AI Office, after consulting with the Board, can evaluate AI models to ensure they comply with regulations or to investigate potential risks. If the information they have is insufficient, they can bring in independent experts to help. The Commission can request access to the AI model, including its source code, and the provider must supply this information. The Commission will also set out detailed arrangements for these evaluations. Before requesting access, the AI Office can have a discussion with the provider to learn more about their internal testing and risk prevention measures."^^xsd:string .
+
+:Article_93 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/93/"^^xsd:string ;
+    :hasSummary "This article states that if necessary, the Commission can ask AI providers to take steps to meet certain obligations, implement measures to reduce risk, or limit the availability of their AI model. Before asking for these measures, the AI Office can start a discussion with the AI provider. If the provider agrees to take steps to reduce risk during this discussion, the Commission can make these commitments mandatory and declare that no further action is needed."^^xsd:string .
+
+:Article_94 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/94/"^^xsd:string ;
+    :hasSummary "This article states that the rules from Article 18 of Regulation (EU) 2019/1020 also apply to those who provide general-purpose AI models. This means they have certain rights when it comes to procedures. However, this doesn't affect any other specific procedural rights that are mentioned elsewhere in this regulation."^^xsd:string .
+
+:Article_95 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/95/"^^xsd:string ;
+    :hasSummary "The EU's AI Office and member states will encourage the creation of codes of conduct for AI systems. These codes will promote voluntary adherence to certain standards, taking into account technical solutions and industry best practices. They will also encourage the use of AI in a way that minimizes environmental impact, promotes AI literacy, ensures inclusivity and diversity, and prevents negative impacts on vulnerable groups. These codes can be created by AI providers, deployers, or their representative organizations, and should consider the interests and needs of small businesses and startups."^^xsd:string .
+
+:Article_96 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/96/"^^xsd:string ;
+    :hasSummary "The European Commission will create guidelines on how to practically implement the new AI regulation. This includes how to apply the rules, what practices are prohibited, how to make changes, and how to be transparent. The guidelines will also explain how this regulation fits with other EU laws. The Commission will pay special attention to the needs of small businesses, local authorities, and sectors most affected by this regulation. The guidelines will be updated as needed, either at the request of member states, the AI Office, or the Commission itself."^^xsd:string .
+
+:Article_97 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/97/"^^xsd:string ;
+    :hasSummary "This article explains how the European Commission can adopt delegated acts, which are essentially specific laws or regulations. The Commission has the power to do this for five years from when the regulation comes into effect, but this can be extended unless the European Parliament or Council objects. The Commission must consult with experts from each EU member state before adopting a delegated act. Once an act is adopted, it must be notified to the European Parliament and Council. The act only comes into force if neither the Parliament nor Council objects within three months."^^xsd:string .
+
+:Article_98 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/98/"^^xsd:string ;
+    :hasSummary "This section of the EU AI Act states that the Commission will be supported by a committee. This committee is defined according to Regulation (EU) No 182/2011. If this paragraph is referred to, then Article 5 of Regulation (EU) No 182/2011 should be applied. In simpler terms, the Commission has a team to help it, and the rules for this team are set out in a specific EU regulation."^^xsd:string .
+
+:Article_99 a :Article ;
+    :hasSourceURL "https://artificialintelligenceact.eu/article/99/"^^xsd:string ;
+    :hasSummary "This article states that member countries must establish rules for penalties and enforcement measures for violations of the Act. These penalties must be effective, proportionate, and dissuasive, and consider the interests of small and medium-sized enterprises (SMEs) and startups. Non-compliance with certain AI practices can result in fines up to 35 million EUR or 7% of a company's annual turnover. Other violations can result in fines up to 15 million EUR or 3% of a company's annual turnover. Providing incorrect or misleading information can result in fines up to 7.5 million EUR or 1% of a company's annual turnover. SMEs will receive lower fines. The severity of the fine will depend on various factors, including the nature of the violation, the size of the company, and any previous violations. Member states must report annually to the Commission on the fines they have issued."^^xsd:string .
+

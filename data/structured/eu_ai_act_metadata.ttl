@@ -1,0 +1,386 @@
+@prefix :        <https://example.org/eu-ai-act-compliance#> .
+@prefix airo:    <https://w3id.org/airo#> .
+@prefix dct:     <http://purl.org/dc/terms/> .
+@prefix dpv:     <https://w3id.org/dpv#> .
+@prefix eu-aiact: <https://w3id.org/dpv/legal/eu/aiact#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+
+
+# --- construct_metadata ---
+:ComplianceDeadline_20310802
+        rdf:type              :ComplianceDeadlineProvision;
+        rdfs:label            "Compliance deadline 2031-08-02";
+        :hasArticleReference  :Article_112;
+        :hasProvisionDate     "2031-08-02"^^xsd:date .
+:ComplianceDeadline_20290802
+        rdf:type              :ComplianceDeadlineProvision;
+        rdfs:label            "Compliance deadline 2029-08-02";
+        :hasArticleReference  :Article_112;
+        :hasProvisionDate     "2029-08-02"^^xsd:date .
+:ComplianceDeadline_20270802
+        rdf:type              :ComplianceDeadlineProvision;
+        rdfs:label            "Compliance deadline 2027-08-02";
+        :hasArticleReference  :Article_111;
+        :hasProvisionDate     "2027-08-02"^^xsd:date .
+:ComplianceDeadline_20290801
+        rdf:type              :ComplianceDeadlineProvision;
+        rdfs:label            "Compliance deadline 2029-08-01";
+        :hasArticleReference  :Article_97;
+        :hasProvisionDate     "2029-08-01"^^xsd:date .
+:ComplianceDeadline_20280802
+        rdf:type              :ComplianceDeadlineProvision;
+        rdfs:label            "Compliance deadline 2028-08-02";
+        :hasArticleReference  :Article_112;
+        :hasProvisionDate     "2028-08-02"^^xsd:date .
+:ComplianceDeadline_20300802
+        rdf:type              :ComplianceDeadlineProvision;
+        rdfs:label            "Compliance deadline 2030-08-02";
+        :hasArticleReference  :Article_111;
+        :hasProvisionDate     "2030-08-02"^^xsd:date .
+:EntryIntoForce_20250802
+        rdf:type              :EntryIntoForceDate;
+        rdfs:label            "Entry into force 2025-08-02";
+        :hasArticleReference  :Article_113;
+        :hasEffectiveDate     "2025-08-02"^^xsd:date .
+:EntryIntoForce_20260802
+        rdf:type              :EntryIntoForceDate;
+        rdfs:label            "Entry into force 2026-08-02";
+        :hasArticleReference  :Article_113;
+        :hasEffectiveDate     "2026-08-02"^^xsd:date .
+:EntryIntoForce_20240801
+        rdf:type              :EntryIntoForceDate;
+        rdfs:label            "Entry into force 2024-08-01";
+        :hasArticleReference  :Article_113;
+        :hasEffectiveDate     "2024-08-01"^^xsd:date .
+:EntryIntoForce_20270802
+        rdf:type              :EntryIntoForceDate;
+        rdfs:label            "Entry into force 2027-08-02";
+        :hasArticleReference  :Article_113;
+        :hasEffectiveDate     "2027-08-02"^^xsd:date .
+:Creator_EP  rdf:type  dpv:Authority;
+        rdfs:label  "European Parliament" .
+:Legislation_32018R0858
+        rdf:type              :EULegislation;
+        rdfs:label            "EU Legislation 32018R0858";
+        :hasCELEXNumber       "32018R0858";
+        :hasModifiedLocation  "{AR|http://publications.europa.eu/resource/authority/fd_370/AR} 5 {PA|http://publications.europa.eu/resource/authority/fd_370/PA} 4" .
+:Legislation_32014R0090
+        rdf:type              :EULegislation;
+        rdfs:label            "EU Legislation 32014R0090";
+        :hasCELEXNumber       "32014R0090";
+        :hasModifiedLocation  "{AR|http://publications.europa.eu/resource/authority/fd_370/AR} 8 {ALN|http://publications.europa.eu/resource/authority/fd_370/ALN} 5" .
+:Legislation_32020L1828
+        rdf:type              :EULegislation;
+        rdfs:label            "EU Legislation 32020L1828";
+        :hasCELEXNumber       "32020L1828";
+        :hasModifiedLocation  "{AN|http://publications.europa.eu/resource/authority/fd_370/AN} I {PO|http://publications.europa.eu/resource/authority/fd_370/PO} 68" .
+:Legislation_32016L0797
+        rdf:type              :EULegislation;
+        rdfs:label            "EU Legislation 32016L0797";
+        :hasCELEXNumber       "32016L0797";
+        :hasModifiedLocation  "{AR|http://publications.europa.eu/resource/authority/fd_370/AR} 5 {PA|http://publications.europa.eu/resource/authority/fd_370/PA} 12" .
+:Legislation_32019R2144
+        rdf:type              :EULegislation;
+        rdfs:label            "EU Legislation 32019R2144";
+        :hasCELEXNumber       "32019R2144";
+        :hasModifiedLocation  "{AR|http://publications.europa.eu/resource/authority/fd_370/AR} 11 {PA|http://publications.europa.eu/resource/authority/fd_370/PA} 3" .
+:Legislation_32008R0300
+        rdf:type              :EULegislation;
+        rdfs:label            "EU Legislation 32008R0300";
+        :hasCELEXNumber       "32008R0300";
+        :hasModifiedLocation  "{AR|http://publications.europa.eu/resource/authority/fd_370/AR} 4 {PA|http://publications.europa.eu/resource/authority/fd_370/PA} 3 {ALN|http://publications.europa.eu/resource/authority/fd_370/ALN}" .
+:Legislation_32018R1139
+        rdf:type              :EULegislation;
+        rdfs:label            "EU Legislation 32018R1139";
+        :hasCELEXNumber       "32018R1139";
+        :hasModifiedLocation  "{AR|http://publications.europa.eu/resource/authority/fd_370/AR} 57 {ALN|http://publications.europa.eu/resource/authority/fd_370/ALN}" .
+:Legislation_32013R0167
+        rdf:type              :EULegislation;
+        rdfs:label            "EU Legislation 32013R0167";
+        :hasCELEXNumber       "32013R0167";
+        :hasModifiedLocation  "{AR|http://publications.europa.eu/resource/authority/fd_370/AR} 17 {PA|http://publications.europa.eu/resource/authority/fd_370/PA} 5 {ALN|http://publications.europa.eu/resource/authority/fd_370/ALN}" .
+:Legislation_32017R0746
+        rdf:type         :EULegislation;
+        rdfs:label       "EU Legislation 32017R0746";
+        :hasCELEXNumber  "32017R0746" .
+:Legislation_32006L0042
+        rdf:type         :EULegislation;
+        rdfs:label       "EU Legislation 32006L0042";
+        :hasCELEXNumber  "32006L0042" .
+:Legislation_31985L0374
+        rdf:type         :EULegislation;
+        rdfs:label       "EU Legislation 31985L0374";
+        :hasCELEXNumber  "31985L0374" .
+:Legislation_32016L0680
+        rdf:type         :EULegislation;
+        rdfs:label       "EU Legislation 32016L0680";
+        :hasCELEXNumber  "32016L0680" .
+:Legislation_32009R0810
+        rdf:type         :EULegislation;
+        rdfs:label       "EU Legislation 32009R0810";
+        :hasCELEXNumber  "32009R0810" .
+:Legislation_52020IP0275
+        rdf:type         :EULegislation;
+        rdfs:label       "EU Legislation 52020IP0275";
+        :hasCELEXNumber  "52020IP0275" .
+:Legislation_12016P039
+        rdf:type         :EULegislation;
+        rdfs:label       "EU Legislation 12016P039";
+        :hasCELEXNumber  "12016P039" .
+:Legislation_12016M004
+        rdf:type         :EULegislation;
+        rdfs:label       "EU Legislation 12016M004";
+        :hasCELEXNumber  "12016M004" .
+:Legislation_32017R0745
+        rdf:type         :EULegislation;
+        rdfs:label       "EU Legislation 32017R0745";
+        :hasCELEXNumber  "32017R0745" .
+:Legislation_22010A0127_01_
+        rdf:type         :EULegislation;
+        rdfs:label       "EU Legislation 22010A0127(01)";
+        :hasCELEXNumber  "22010A0127(01)" .
+:Legislation_32011R0182
+        rdf:type         :EULegislation;
+        rdfs:label       "EU Legislation 32011R0182";
+        :hasCELEXNumber  "32011R0182" .
+:Legislation_32014L0017
+        rdf:type         :EULegislation;
+        rdfs:label       "EU Legislation 32014L0017";
+        :hasCELEXNumber  "32014L0017" .
+:Legislation_32009L0138
+        rdf:type         :EULegislation;
+        rdfs:label       "EU Legislation 32009L0138";
+        :hasCELEXNumber  "32009L0138" .
+:Legislation_52021AB0040
+        rdf:type         :EULegislation;
+        rdfs:label       "EU Legislation 52021AB0040";
+        :hasCELEXNumber  "52021AB0040" .
+:Legislation_32024D01459
+        rdf:type         :EULegislation;
+        rdfs:label       "EU Legislation 32024D01459";
+        :hasCELEXNumber  "32024D01459" .
+:Legislation_32016Q0512_01_
+        rdf:type         :EULegislation;
+        rdfs:label       "EU Legislation 32016Q0512(01)";
+        :hasCELEXNumber  "32016Q0512(01)" .
+:Legislation_32019L0882
+        rdf:type         :EULegislation;
+        rdfs:label       "EU Legislation 32019L0882";
+        :hasCELEXNumber  "32019L0882" .
+:Legislation_12016P_TXT
+        rdf:type         :EULegislation;
+        rdfs:label       "EU Legislation 12016P/TXT";
+        :hasCELEXNumber  "12016P/TXT" .
+:Legislation_12016M005
+        rdf:type         :EULegislation;
+        rdfs:label       "EU Legislation 12016M005";
+        :hasCELEXNumber  "12016M005" .
+:Legislation_32023R0988
+        rdf:type         :EULegislation;
+        rdfs:label       "EU Legislation 32023R0988";
+        :hasCELEXNumber  "32023R0988" .
+:Legislation_32016L0097
+        rdf:type         :EULegislation;
+        rdfs:label       "EU Legislation 32016L0097";
+        :hasCELEXNumber  "32016L0097" .
+:Legislation_32023R2854
+        rdf:type         :EULegislation;
+        rdfs:label       "EU Legislation 32023R2854";
+        :hasCELEXNumber  "32023R2854" .
+:Legislation_52021AR2682
+        rdf:type         :EULegislation;
+        rdfs:label       "EU Legislation 52021AR2682";
+        :hasCELEXNumber  "52021AR2682" .
+:Legislation_12016M_PRO_22
+        rdf:type         :EULegislation;
+        rdfs:label       "EU Legislation 12016M/PRO/22";
+        :hasCELEXNumber  "12016M/PRO/22" .
+:Legislation_12016M002
+        rdf:type         :EULegislation;
+        rdfs:label       "EU Legislation 12016M002";
+        :hasCELEXNumber  "12016M002" .
+:Legislation_32018R1725
+        rdf:type         :EULegislation;
+        rdfs:label       "EU Legislation 32018R1725";
+        :hasCELEXNumber  "32018R1725" .
+:Legislation_12016E290
+        rdf:type         :EULegislation;
+        rdfs:label       "EU Legislation 12016E290";
+        :hasCELEXNumber  "12016E290" .
+:Legislation_12016M_PRO_21
+        rdf:type         :EULegislation;
+        rdfs:label       "EU Legislation 12016M/PRO/21";
+        :hasCELEXNumber  "12016M/PRO/21" .
+:Legislation_12016E_PRO_22
+        rdf:type         :EULegislation;
+        rdfs:label       "EU Legislation 12016E/PRO/22";
+        :hasCELEXNumber  "12016E/PRO/22" .
+:Legislation_32022L2557
+        rdf:type         :EULegislation;
+        rdfs:label       "EU Legislation 32022L2557";
+        :hasCELEXNumber  "32022L2557" .
+:Legislation_32019L1937
+        rdf:type         :EULegislation;
+        rdfs:label       "EU Legislation 32019L1937";
+        :hasCELEXNumber  "32019L1937" .
+:Legislation_21994A1223_07_
+        rdf:type         :EULegislation;
+        rdfs:label       "EU Legislation 21994A1223(07)";
+        :hasCELEXNumber  "21994A1223(07)" .
+:Legislation_12016E_PRO_21
+        rdf:type         :EULegislation;
+        rdfs:label       "EU Legislation 12016E/PRO/21";
+        :hasCELEXNumber  "12016E/PRO/21" .
+:Legislation_32002L0014
+        rdf:type         :EULegislation;
+        rdfs:label       "EU Legislation 32002L0014";
+        :hasCELEXNumber  "32002L0014" .
+:Legislation_32012R1025
+        rdf:type         :EULegislation;
+        rdfs:label       "EU Legislation 32012R1025";
+        :hasCELEXNumber  "32012R1025" .
+:Legislation_32016L0943
+        rdf:type         :EULegislation;
+        rdfs:label       "EU Legislation 32016L0943";
+        :hasCELEXNumber  "32016L0943" .
+:Legislation_32014L0031
+        rdf:type         :EULegislation;
+        rdfs:label       "EU Legislation 32014L0031";
+        :hasCELEXNumber  "32014L0031" .
+:Legislation_32019R0881
+        rdf:type         :EULegislation;
+        rdfs:label       "EU Legislation 32019R0881";
+        :hasCELEXNumber  "32019R0881" .
+:Legislation_32008L0048
+        rdf:type         :EULegislation;
+        rdfs:label       "EU Legislation 32008L0048";
+        :hasCELEXNumber  "32008L0048" .
+:Legislation_32013R1024
+        rdf:type         :EULegislation;
+        rdfs:label       "EU Legislation 32013R1024";
+        :hasCELEXNumber  "32013R1024" .
+:Legislation_12016M006
+        rdf:type         :EULegislation;
+        rdfs:label       "EU Legislation 12016M006";
+        :hasCELEXNumber  "12016M006" .
+:Legislation_32014L0032
+        rdf:type         :EULegislation;
+        rdfs:label       "EU Legislation 32014L0032";
+        :hasCELEXNumber  "32014L0032" .
+:Legislation_32003H0361
+        rdf:type         :EULegislation;
+        rdfs:label       "EU Legislation 32003H0361";
+        :hasCELEXNumber  "32003H0361" .
+:Legislation_32019L0790
+        rdf:type         :EULegislation;
+        rdfs:label       "EU Legislation 32019L0790";
+        :hasCELEXNumber  "32019L0790" .
+:Legislation_32013L0032
+        rdf:type         :EULegislation;
+        rdfs:label       "EU Legislation 32013L0032";
+        :hasCELEXNumber  "32013L0032" .
+:Legislation_32008R0765
+        rdf:type         :EULegislation;
+        rdfs:label       "EU Legislation 32008R0765";
+        :hasCELEXNumber  "32008R0765" .
+:Legislation_12016P024
+        rdf:type         :EULegislation;
+        rdfs:label       "EU Legislation 12016P024";
+        :hasCELEXNumber  "12016P024" .
+:Legislation_32002F0584
+        rdf:type         :EULegislation;
+        rdfs:label       "EU Legislation 32002F0584";
+        :hasCELEXNumber  "32002F0584" .
+:Legislation_32013L0036
+        rdf:type         :EULegislation;
+        rdfs:label       "EU Legislation 32013L0036";
+        :hasCELEXNumber  "32013L0036" .
+:Legislation_32016L2102
+        rdf:type         :EULegislation;
+        rdfs:label       "EU Legislation 32016L2102";
+        :hasCELEXNumber  "32016L2102" .
+:Legislation_32019R1020
+        rdf:type         :EULegislation;
+        rdfs:label       "EU Legislation 32019R1020";
+        :hasCELEXNumber  "32019R1020" .
+:Legislation_32016R0679
+        rdf:type         :EULegislation;
+        rdfs:label       "EU Legislation 32016R0679";
+        :hasCELEXNumber  "32016R0679" .
+:Legislation_52021AE2482
+        rdf:type         :EULegislation;
+        rdfs:label       "EU Legislation 52021AE2482";
+        :hasCELEXNumber  "52021AE2482" .
+:Legislation_32022R0868
+        rdf:type         :EULegislation;
+        rdfs:label       "EU Legislation 32022R0868";
+        :hasCELEXNumber  "32022R0868" .
+:Legislation_32013R0575
+        rdf:type         :EULegislation;
+        rdfs:label       "EU Legislation 32013R0575";
+        :hasCELEXNumber  "32013R0575" .
+:Legislation_32005L0029
+        rdf:type         :EULegislation;
+        rdfs:label       "EU Legislation 32005L0029";
+        :hasCELEXNumber  "32005L0029" .
+:Legislation_32024R0900
+        rdf:type         :EULegislation;
+        rdfs:label       "EU Legislation 32024R0900";
+        :hasCELEXNumber  "32024R0900" .
+:Legislation_32002L0058
+        rdf:type         :EULegislation;
+        rdfs:label       "EU Legislation 32002L0058";
+        :hasCELEXNumber  "32002L0058" .
+:Legislation_32022R2065
+        rdf:type         :EULegislation;
+        rdfs:label       "EU Legislation 32022R2065";
+        :hasCELEXNumber  "32022R2065" .
+:Legislation_52022XC0629_04_
+        rdf:type         :EULegislation;
+        rdfs:label       "EU Legislation 52022XC0629(04)";
+        :hasCELEXNumber  "52022XC0629(04)" .
+:Legislation_12016E_TXT
+        rdf:type         :EULegislation;
+        rdfs:label       "EU Legislation 12016E/TXT";
+        :hasCELEXNumber  "12016E/TXT" .
+:Legislation_12016M_TXT
+        rdf:type         :EULegislation;
+        rdfs:label       "EU Legislation 12016M/TXT";
+        :hasCELEXNumber  "12016M/TXT" .
+:Legislation_12016E261
+        rdf:type         :EULegislation;
+        rdfs:label       "EU Legislation 12016E261";
+        :hasCELEXNumber  "12016E261" .
+:Legislation_32008D0768
+        rdf:type         :EULegislation;
+        rdfs:label       "EU Legislation 32008D0768";
+        :hasCELEXNumber  "32008D0768" .
+:Legislation_32013R0168
+        rdf:type              :EULegislation;
+        rdfs:label            "EU Legislation 32013R0168";
+        :hasCELEXNumber       "32013R0168";
+        :hasModifiedLocation  "{AR|http://publications.europa.eu/resource/authority/fd_370/AR} 22 {PA|http://publications.europa.eu/resource/authority/fd_370/PA} 5 {ALN|http://publications.europa.eu/resource/authority/fd_370/ALN}" .
+:Creator_CONSIL  rdf:type  dpv:Authority;
+        rdfs:label  "Council of the European Union" .
+:EntryIntoForce_20250202
+        rdf:type              :EntryIntoForceDate;
+        rdfs:label            "Entry into force 2025-02-02";
+        :hasArticleReference  :Article_113;
+        :hasEffectiveDate     "2025-02-02"^^xsd:date .
+:ComplianceDeadline_20301231
+        rdf:type              :ComplianceDeadlineProvision;
+        rdfs:label            "Compliance deadline 2030-12-31";
+        :hasArticleReference  :Article_111;
+        :hasProvisionDate     "2030-12-31"^^xsd:date .
+:EUAIAct2024  rdf:type               owl:NamedIndividual , :AIActRegulation;
+        rdfs:label                   "Regulation (EU) 2024/1689 — EU AI Act"@en;
+        :amends                      :Legislation_32018R0858 , :Legislation_32014R0090 , :Legislation_32020L1828 , :Legislation_32016L0797 , :Legislation_32019R2144 , :Legislation_32008R0300 , :Legislation_32018R1139 , :Legislation_32013R0167 , :Legislation_32013R0168;
+        :cites                       :Legislation_32017R0746 , :Legislation_32006L0042 , :Legislation_31985L0374 , :Legislation_32016L0680 , :Legislation_32009R0810 , :Legislation_52020IP0275 , :Legislation_12016P039 , :Legislation_12016M004 , :Legislation_32017R0745 , :Legislation_22010A0127_01_ , :Legislation_32011R0182 , :Legislation_32014L0017 , :Legislation_32009L0138 , :Legislation_52021AB0040 , :Legislation_32024D01459 , :Legislation_32016Q0512_01_ , :Legislation_32019L0882 , :Legislation_12016P_TXT , :Legislation_12016M005 , :Legislation_32023R0988 , :Legislation_32016L0097 , :Legislation_32023R2854 , :Legislation_52021AR2682 , :Legislation_12016M_PRO_22 , :Legislation_12016M002 , :Legislation_32018R1725 , :Legislation_12016E290 , :Legislation_12016M_PRO_21 , :Legislation_12016E_PRO_22 , :Legislation_32022L2557 , :Legislation_32019L1937 , :Legislation_21994A1223_07_ , :Legislation_12016E_PRO_21 , :Legislation_32002L0014 , :Legislation_32012R1025 , :Legislation_32016L0943 , :Legislation_32014L0031 , :Legislation_32019R0881 , :Legislation_32008L0048 , :Legislation_32013R1024 , :Legislation_12016M006 , :Legislation_32014L0032 , :Legislation_32003H0361 , :Legislation_32019L0790 , :Legislation_32013L0032 , :Legislation_32008R0765 , :Legislation_12016P024 , :Legislation_32002F0584 , :Legislation_32013L0036 , :Legislation_32016L2102 , :Legislation_32019R1020 , :Legislation_32016R0679 , :Legislation_52021AE2482 , :Legislation_32022R0868 , :Legislation_32013R0575 , :Legislation_32005L0029 , :Legislation_32024R0900 , :Legislation_32008D0768 , :Legislation_12016E261 , :Legislation_12016M_TXT , :Legislation_12016E_TXT , :Legislation_52022XC0629_04_ , :Legislation_32022R2065 , :Legislation_32002L0058;
+        :createdBy                   :Creator_EP , :Creator_CONSIL;
+        :hasCELEXNumber              "32024R1689";
+        :hasCellarURI                "http://publications.europa.eu/resource/cellar/dc8116a1-3fe6-11ef-865a-01aa75ed71a1";
+        :hasComplianceProvision      :ComplianceDeadline_20310802 , :ComplianceDeadline_20290802 , :ComplianceDeadline_20270802 , :ComplianceDeadline_20290801 , :ComplianceDeadline_20280802 , :ComplianceDeadline_20300802 , :ComplianceDeadline_20301231;
+        :hasEntryIntoForceProvision  :EntryIntoForce_20250802 , :EntryIntoForce_20260802 , :EntryIntoForce_20240801 , :EntryIntoForce_20270802 , :EntryIntoForce_20250202 .

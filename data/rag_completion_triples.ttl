@@ -1,0 +1,465 @@
+@prefix : <https://example.org/eu-ai-act-compliance#> .
+@prefix airo: <https://w3id.org/airo#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:EUAIAct2024 :hasOJReference "OJ L 1689, 12.7.2024"^^xsd:string .
+
+:GPAIModelInstance :hasObligation :art56_monitoring_evaluation_and_assessment_of_codes,
+        :art56_objectives_commitments_key_performance_indicators,
+        :art56_reporting_on_implementation_and_outcomes,
+        :art56_training_content_summary_detail,
+        :art56_updating_information_art53 .
+
+:GPAISystemicRiskModelInstance :hasObligation :art56_monitoring_evaluation_and_assessment_of_codes,
+        :art56_objectives_commitments_key_performance_indicators,
+        :art56_reporting_on_implementation_and_outcomes,
+        :art56_training_content_summary_detail,
+        :art56_updating_information_art53 .
+
+:HighRiskAISystem_biometrics airo:hasAreaOfApplication :AreaOfApplication_biometrics .
+
+:HighRiskAISystem_critical_infrastructure airo:hasAreaOfApplication :AreaOfApplication_critical_infrastructure .
+
+:HighRiskAISystem_education airo:hasAreaOfApplication :AreaOfApplication_education .
+
+:HighRiskAISystem_employment airo:hasAreaOfApplication :AreaOfApplication_employment .
+
+:HighRiskAISystem_essential_services airo:hasAreaOfApplication :AreaOfApplication_essential_services .
+
+:HighRiskAISystem_justice airo:hasAreaOfApplication :AreaOfApplication_justice .
+
+:HighRiskAISystem_law_enforcement airo:hasAreaOfApplication :AreaOfApplication_law_enforcement .
+
+:HighRiskAISystem_migration airo:hasAreaOfApplication :AreaOfApplication_migration .
+
+:ProviderStakeholder :hasObligation :art56_monitoring_evaluation_and_assessment_of_codes,
+        :art56_objectives_commitments_key_performance_indicators,
+        :art56_reporting_on_implementation_and_outcomes,
+        :art56_training_content_summary_detail,
+        :art56_updating_information_art53 .
+
+:deployer_human_oversight_measures_art14_3b :requiresControl :risk_control_art14_4_a,
+        :risk_control_art14_4_b .
+
+:enforcement_power_art101 :hasFine 15000000.0 ;
+    :hasMaximumFineRatio 0.03 .
+
+:enforcement_power_art37_4 :hasMaximumFineRatio 0.03 .
+
+:enforcement_power_art80_4 :hasFine 15000000.0 ;
+    :hasMaximumFineRatio 0.03 .
+
+:enforcement_power_art80_7 :hasFine 15000000.0 ;
+    :hasMaximumFineRatio 0.03 .
+
+:enforcement_power_art83 :hasFine 15000000.0 ;
+    :hasMaximumFineRatio 0.03 .
+
+:enforcement_power_art83_restriction_prohibition :hasFine 35000000.0 ;
+    :hasMaximumFineRatio 0.03 .
+
+:human_oversight_aim_risk_prevention_art14_2 :requiresControl :risk_control_art14_4_a,
+        :risk_control_art14_4_b .
+
+:monitor_operation_and_incident_reporting_deployers_art26_5 :hasDeadline "P0D"^^xsd:duration .
+
+:provider_human_oversight_measures_art14_3a :hasDeadline "P0D"^^xsd:duration .
+
+:AreaOfApplication_biometrics a :AreaOfApplication ;
+    rdfs:label "Biometrics"@en ;
+    :hasAnnexReference :Annex_III ;
+    :hasSummary "AI systems intended for remote biometric identification, biometric categorisation based on sensitive or protected attributes, and emotion recognition, insofar as their use is permitted by law."^^xsd:string .
+
+:AreaOfApplication_critical_infrastructure a :AreaOfApplication ;
+    rdfs:label "Critical infrastructure"@en ;
+    :hasAnnexReference :Annex_III ;
+    :hasSummary "AI systems used as safety components in the management and operation of critical digital infrastructure, road traffic, or in the supply of water, gas, heating or electricity."^^xsd:string .
+
+:AreaOfApplication_education a :AreaOfApplication ;
+    rdfs:label "Education and vocational training"@en ;
+    :hasAnnexReference :Annex_III ;
+    :hasSummary "AI systems used to determine access or admission to educational institutions, evaluate learning outcomes, assess appropriate education levels, and monitor student behavior during tests."^^xsd:string .
+
+:AreaOfApplication_employment a :AreaOfApplication ;
+    rdfs:label "Employment, workers management and access to self-employment"@en ;
+    :hasAnnexReference :Annex_III ;
+    :hasSummary "AI systems intended for recruitment or selection processes, managing work-related decisions such as promotions or terminations, task allocation based on personal traits, and monitoring and evaluating worker performance and behavior."^^xsd:string .
+
+:AreaOfApplication_essential_services a :AreaOfApplication ;
+    rdfs:label "Access to and enjoyment of essential private and public services and benefits"@en ;
+    :hasAnnexReference :Annex_III ;
+    :hasSummary "AI systems used by public authorities to evaluate eligibility for essential public assistance, assess creditworthiness, perform risk assessment and pricing in life and health insurance, and to manage emergency call classifications and first response services."^^xsd:string .
+
+:AreaOfApplication_justice a :AreaOfApplication ;
+    rdfs:label "Administration of justice and democratic processes"@en ;
+    :hasAnnexReference :Annex_III ;
+    :hasSummary "AI systems used by judicial authorities to assist in researching and interpreting facts and laws for judicial decisions and alternative dispute resolution, and AI systems intended to influence election or referendum outcomes and voting behavior, excluding administrative campaign tools."^^xsd:string .
+
+:AreaOfApplication_law_enforcement a :AreaOfApplication ;
+    rdfs:label "Law enforcement"@en ;
+    :hasAnnexReference :Annex_III ;
+    :hasSummary "AI systems used by or on behalf of law enforcement authorities to assess victim risk, act as polygraphs or similar tools, evaluate evidence reliability, assess offending risk, and profile individuals in criminal investigations as permitted by law."^^xsd:string .
+
+:AreaOfApplication_migration a :AreaOfApplication ;
+    rdfs:label "Migration, asylum and border control management"@en ;
+    :hasAnnexReference :Annex_III ;
+    :hasSummary "AI systems used by competent public authorities or EU agencies for polygraph-like assessments, risk evaluation related to migration or health, asylum and visa application assessments, and identification in migration and border control contexts, as permitted by law."^^xsd:string .
+
+:documentation_component_anniv_2_a a :DocumentationComponent ;
+    rdfs:label "documentation_component_anniv_2_a"@en ;
+    :hasAnnexReference :Annex_IV ;
+    :hasComponentOf :TechnicalDocumentation_Annex_IV ;
+    :hasSummary "The methods and steps performed for the development of the AI system, including the use and integration or modification of pre-trained systems or third-party tools by the provider."^^xsd:string .
+
+:documentation_component_anniv_2_b a :DocumentationComponent ;
+    rdfs:label "documentation_component_anniv_2_b"@en ;
+    :hasAnnexReference :Annex_IV ;
+    :hasComponentOf :TechnicalDocumentation_Annex_IV ;
+    :hasSummary "The design specifications of the AI system, covering its general logic, key design choices and rationale including assumptions about users, classification choices, optimization goals, expected outputs and quality, and any trade-offs made to ensure compliance with applicable requirements."^^xsd:string .
+
+:documentation_component_anniv_2_c a :DocumentationComponent ;
+    rdfs:label "documentation_component_anniv_2_c"@en ;
+    :hasAnnexReference :Annex_IV ;
+    :hasComponentOf :TechnicalDocumentation_Annex_IV ;
+    :hasSummary "The system architecture description explaining software component integration, dependencies, and the computational resources used for development, training, testing, and validation of the AI system."^^xsd:string .
+
+:documentation_component_anniv_2_d a :DocumentationComponent ;
+    rdfs:label "documentation_component_anniv_2_d"@en ;
+    :hasAnnexReference :Annex_IV ;
+    :hasComponentOf :TechnicalDocumentation_Annex_IV ;
+    :hasSummary "Data requirements including datasheets describing training methodologies, data sets characteristics, provenance, selection, labelling procedures, and data cleaning methods relevant to the AI system."^^xsd:string .
+
+:documentation_component_anniv_2_e a :DocumentationComponent ;
+    rdfs:label "documentation_component_anniv_2_e"@en ;
+    :hasAnnexReference :Annex_IV ;
+    :hasComponentOf :TechnicalDocumentation_Annex_IV ;
+    :hasSummary "Assessment of human oversight measures in accordance with Article 14, and technical measures to facilitate deployers’ interpretation of AI system outputs, as required by Article 13(3)(d)."^^xsd:string .
+
+:documentation_component_anniv_2_f a :DocumentationComponent ;
+    rdfs:label "documentation_component_anniv_2_f"@en ;
+    :hasAnnexReference :Annex_IV ;
+    :hasComponentOf :TechnicalDocumentation_Annex_IV ;
+    :hasSummary "Detailed description of pre-determined changes to the AI system and performance, including technical solutions adopted to ensure continuous compliance with relevant requirements set out in Chapter III, Section 2."^^xsd:string .
+
+:documentation_component_anniv_2_g a :DocumentationComponent ;
+    rdfs:label "documentation_component_anniv_2_g"@en ;
+    :hasAnnexReference :Annex_IV ;
+    :hasComponentOf :TechnicalDocumentation_Annex_IV ;
+    :hasSummary "Validation and testing procedures including information about validation/testing data, metrics for accuracy, robustness, compliance, and discrimination impacts, along with test logs and signed reports, including for pre-determined changes."^^xsd:string .
+
+:documentation_component_anniv_2_h a :DocumentationComponent ;
+    rdfs:label "documentation_component_anniv_2_h"@en ;
+    :hasAnnexReference :Annex_IV ;
+    :hasComponentOf :TechnicalDocumentation_Annex_IV ;
+    :hasSummary "Cybersecurity measures put in place for the AI system."^^xsd:string .
+
+:documentation_component_anniv_3 a :DocumentationComponent ;
+    rdfs:label "documentation_component_anniv_3"@en ;
+    :hasAnnexReference :Annex_IV ;
+    :hasComponentOf :TechnicalDocumentation_Annex_IV ;
+    :hasSummary "Detailed information about the monitoring, functioning and control of the AI system, including capabilities and limitations in performance, foreseeable unintended outcomes and risks to health, safety, fundamental rights and discrimination, and human oversight measures, with specifications on input data as appropriate."^^xsd:string .
+
+:documentation_component_anniv_4 a :DocumentationComponent ;
+    rdfs:label "documentation_component_anniv_4"@en ;
+    :hasAnnexReference :Annex_IV ;
+    :hasComponentOf :TechnicalDocumentation_Annex_IV ;
+    :hasSummary "Description of the appropriateness of the performance metrics used for the specific AI system."^^xsd:string .
+
+:documentation_component_anniv_5 a :DocumentationComponent ;
+    rdfs:label "documentation_component_anniv_5"@en ;
+    :hasAnnexReference :Annex_IV ;
+    :hasComponentOf :TechnicalDocumentation_Annex_IV ;
+    :hasSummary "Detailed description of the risk management system in accordance with Article 9 governing the AI system."^^xsd:string .
+
+:documentation_component_anniv_6 a :DocumentationComponent ;
+    rdfs:label "documentation_component_anniv_6"@en ;
+    :hasAnnexReference :Annex_IV ;
+    :hasComponentOf :TechnicalDocumentation_Annex_IV ;
+    :hasSummary "Description of relevant changes made by the provider to the AI system throughout its lifecycle."^^xsd:string .
+
+:documentation_component_anniv_7 a :DocumentationComponent ;
+    rdfs:label "documentation_component_anniv_7"@en ;
+    :hasAnnexReference :Annex_IV ;
+    :hasComponentOf :TechnicalDocumentation_Annex_IV ;
+    :hasSummary "A list of harmonised standards applied in full or in part, with references published in the Official Journal of the European Union; or, if none applied, a detailed description of solutions adopted to meet requirements including other relevant standards and technical specifications."^^xsd:string .
+
+:documentation_component_anniv_8 a :DocumentationComponent ;
+    rdfs:label "documentation_component_anniv_8"@en ;
+    :hasAnnexReference :Annex_IV ;
+    :hasComponentOf :TechnicalDocumentation_Annex_IV ;
+    :hasSummary "A copy of the EU declaration of conformity referred to in Article 47."^^xsd:string .
+
+:documentation_component_anniv_9 a :DocumentationComponent ;
+    rdfs:label "documentation_component_anniv_9"@en ;
+    :hasAnnexReference :Annex_IV ;
+    :hasComponentOf :TechnicalDocumentation_Annex_IV ;
+    :hasSummary "Detailed description of the system for evaluating AI system performance in the post-market phase pursuant to Article 72, including the post-market monitoring plan referred to in Article 72(3)."^^xsd:string .
+
+:registration_field_annviii_a_1 a :RegistrationField ;
+    rdfs:label "registration_field_annviii_a_1"@en ;
+    :hasAnnexReference :Annex_VIII ;
+    :hasComponentOf :RegistrationRecord_Annex_VIII ;
+    :hasSummary "The name, address and contact details of the provider"^^xsd:string .
+
+:registration_field_annviii_a_10 a :RegistrationField ;
+    rdfs:label "registration_field_annviii_a_10"@en ;
+    :hasAnnexReference :Annex_VIII ;
+    :hasComponentOf :RegistrationRecord_Annex_VIII ;
+    :hasSummary "Any Member States in which the AI system has been placed on the market, put into service or made available in the Union"^^xsd:string .
+
+:registration_field_annviii_a_11 a :RegistrationField ;
+    rdfs:label "registration_field_annviii_a_11"@en ;
+    :hasAnnexReference :Annex_VIII ;
+    :hasComponentOf :RegistrationRecord_Annex_VIII ;
+    :hasSummary "A copy of the EU declaration of conformity referred to in Article 47"^^xsd:string .
+
+:registration_field_annviii_a_12 a :RegistrationField ;
+    rdfs:label "registration_field_annviii_a_12"@en ;
+    :hasAnnexReference :Annex_VIII ;
+    :hasComponentOf :RegistrationRecord_Annex_VIII ;
+    :hasSummary "Electronic instructions for use; this information shall not be provided for high-risk AI systems in the areas of law enforcement or migration, asylum and border control management referred to in Annex III, points 1, 6 and 7"^^xsd:string .
+
+:registration_field_annviii_a_13 a :RegistrationField ;
+    rdfs:label "registration_field_annviii_a_13"@en ;
+    :hasAnnexReference :Annex_VIII ;
+    :hasComponentOf :RegistrationRecord_Annex_VIII ;
+    :hasSummary "A URL for additional information (optional)"^^xsd:string .
+
+:registration_field_annviii_a_2 a :RegistrationField ;
+    rdfs:label "registration_field_annviii_a_2"@en ;
+    :hasAnnexReference :Annex_VIII ;
+    :hasComponentOf :RegistrationRecord_Annex_VIII ;
+    :hasSummary "Where submission of information is carried out by another person on behalf of the provider, the name, address and contact details of that person"^^xsd:string .
+
+:registration_field_annviii_a_3 a :RegistrationField ;
+    rdfs:label "registration_field_annviii_a_3"@en ;
+    :hasAnnexReference :Annex_VIII ;
+    :hasComponentOf :RegistrationRecord_Annex_VIII ;
+    :hasSummary "The name, address and contact details of the authorised representative, where applicable"^^xsd:string .
+
+:registration_field_annviii_a_4 a :RegistrationField ;
+    rdfs:label "registration_field_annviii_a_4"@en ;
+    :hasAnnexReference :Annex_VIII ;
+    :hasComponentOf :RegistrationRecord_Annex_VIII ;
+    :hasSummary "The AI system trade name and any additional unambiguous reference allowing the identification and traceability of the AI system"^^xsd:string .
+
+:registration_field_annviii_a_5 a :RegistrationField ;
+    rdfs:label "registration_field_annviii_a_5"@en ;
+    :hasAnnexReference :Annex_VIII ;
+    :hasComponentOf :RegistrationRecord_Annex_VIII ;
+    :hasSummary "A description of the intended purpose of the AI system and of the components and functions supported through this AI system"^^xsd:string .
+
+:registration_field_annviii_a_6 a :RegistrationField ;
+    rdfs:label "registration_field_annviii_a_6"@en ;
+    :hasAnnexReference :Annex_VIII ;
+    :hasComponentOf :RegistrationRecord_Annex_VIII ;
+    :hasSummary "A basic and concise description of the information used by the system (data, inputs) and its operating logic"^^xsd:string .
+
+:registration_field_annviii_a_7 a :RegistrationField ;
+    rdfs:label "registration_field_annviii_a_7"@en ;
+    :hasAnnexReference :Annex_VIII ;
+    :hasComponentOf :RegistrationRecord_Annex_VIII ;
+    :hasSummary "The status of the AI system (on the market, or in service; no longer placed on the market/in service, recalled)"^^xsd:string .
+
+:registration_field_annviii_a_8 a :RegistrationField ;
+    rdfs:label "registration_field_annviii_a_8"@en ;
+    :hasAnnexReference :Annex_VIII ;
+    :hasComponentOf :RegistrationRecord_Annex_VIII ;
+    :hasSummary "The type, number and expiry date of the certificate issued by the notified body and the name or identification number of that notified body, where applicable"^^xsd:string .
+
+:registration_field_annviii_a_9 a :RegistrationField ;
+    rdfs:label "registration_field_annviii_a_9"@en ;
+    :hasAnnexReference :Annex_VIII ;
+    :hasComponentOf :RegistrationRecord_Annex_VIII ;
+    :hasSummary "A scanned copy of the certificate referred to in point 8, where applicable"^^xsd:string .
+
+:registration_field_annviii_b_1 a :RegistrationField ;
+    rdfs:label "registration_field_annviii_b_1"@en ;
+    :hasAnnexReference :Annex_VIII ;
+    :hasComponentOf :RegistrationRecord_Annex_VIII ;
+    :hasSummary "The name, address and contact details of the provider"^^xsd:string .
+
+:registration_field_annviii_b_2 a :RegistrationField ;
+    rdfs:label "registration_field_annviii_b_2"@en ;
+    :hasAnnexReference :Annex_VIII ;
+    :hasComponentOf :RegistrationRecord_Annex_VIII ;
+    :hasSummary "Where submission of information is carried out by another person on behalf of the provider, the name, address and contact details of that person"^^xsd:string .
+
+:registration_field_annviii_b_3 a :RegistrationField ;
+    rdfs:label "registration_field_annviii_b_3"@en ;
+    :hasAnnexReference :Annex_VIII ;
+    :hasComponentOf :RegistrationRecord_Annex_VIII ;
+    :hasSummary "The name, address and contact details of the authorised representative, where applicable"^^xsd:string .
+
+:registration_field_annviii_b_4 a :RegistrationField ;
+    rdfs:label "registration_field_annviii_b_4"@en ;
+    :hasAnnexReference :Annex_VIII ;
+    :hasComponentOf :RegistrationRecord_Annex_VIII ;
+    :hasSummary "The AI system trade name and any additional unambiguous reference allowing the identification and traceability of the AI system"^^xsd:string .
+
+:registration_field_annviii_b_5 a :RegistrationField ;
+    rdfs:label "registration_field_annviii_b_5"@en ;
+    :hasAnnexReference :Annex_VIII ;
+    :hasComponentOf :RegistrationRecord_Annex_VIII ;
+    :hasSummary "A description of the intended purpose of the AI system"^^xsd:string .
+
+:registration_field_annviii_b_6 a :RegistrationField ;
+    rdfs:label "registration_field_annviii_b_6"@en ;
+    :hasAnnexReference :Annex_VIII ;
+    :hasComponentOf :RegistrationRecord_Annex_VIII ;
+    :hasSummary "The condition or conditions under Article 6(3) based on which the AI system is considered to be not-high-risk"^^xsd:string .
+
+:registration_field_annviii_b_7 a :RegistrationField ;
+    rdfs:label "registration_field_annviii_b_7"@en ;
+    :hasAnnexReference :Annex_VIII ;
+    :hasComponentOf :RegistrationRecord_Annex_VIII ;
+    :hasSummary "A short summary of the grounds on which the AI system is considered to be not-high-risk in application of the procedure under Article 6(3)"^^xsd:string .
+
+:registration_field_annviii_b_8 a :RegistrationField ;
+    rdfs:label "registration_field_annviii_b_8"@en ;
+    :hasAnnexReference :Annex_VIII ;
+    :hasComponentOf :RegistrationRecord_Annex_VIII ;
+    :hasSummary "The status of the AI system (on the market, or in service; no longer placed on the market/in service, recalled)"^^xsd:string .
+
+:registration_field_annviii_b_9 a :RegistrationField ;
+    rdfs:label "registration_field_annviii_b_9"@en ;
+    :hasAnnexReference :Annex_VIII ;
+    :hasComponentOf :RegistrationRecord_Annex_VIII ;
+    :hasSummary "Any Member States in which the AI system has been placed on the market, put into service or made available in the Union"^^xsd:string .
+
+:registration_field_annviii_c_1 a :RegistrationField ;
+    rdfs:label "registration_field_annviii_c_1"@en ;
+    :hasAnnexReference :Annex_VIII ;
+    :hasComponentOf :RegistrationRecord_Annex_VIII ;
+    :hasSummary "The name, address and contact details of the deployer"^^xsd:string .
+
+:registration_field_annviii_c_2 a :RegistrationField ;
+    rdfs:label "registration_field_annviii_c_2"@en ;
+    :hasAnnexReference :Annex_VIII ;
+    :hasComponentOf :RegistrationRecord_Annex_VIII ;
+    :hasSummary "The name, address and contact details of the person submitting information on behalf of the deployer"^^xsd:string .
+
+:registration_field_annviii_c_3 a :RegistrationField ;
+    rdfs:label "registration_field_annviii_c_3"@en ;
+    :hasAnnexReference :Annex_VIII ;
+    :hasComponentOf :RegistrationRecord_Annex_VIII ;
+    :hasSummary "The URL of the entry of the AI system in the EU database by its provider"^^xsd:string .
+
+:registration_field_annviii_c_4 a :RegistrationField ;
+    rdfs:label "registration_field_annviii_c_4"@en ;
+    :hasAnnexReference :Annex_VIII ;
+    :hasComponentOf :RegistrationRecord_Annex_VIII ;
+    :hasSummary "A summary of the findings of the fundamental rights impact assessment conducted in accordance with Article 27"^^xsd:string .
+
+:registration_field_annviii_c_5 a :RegistrationField ;
+    rdfs:label "registration_field_annviii_c_5"@en ;
+    :hasAnnexReference :Annex_VIII ;
+    :hasComponentOf :RegistrationRecord_Annex_VIII ;
+    :hasSummary "A summary of the data protection impact assessment carried out in accordance with Article 35 of Regulation (EU) 2016/679 or Article 27 of Directive (EU) 2016/680 as specified in Article 26(8) of this Regulation, where applicable"^^xsd:string .
+
+:testing_plan_field_annix_1 a :TestingPlanField ;
+    rdfs:label "testing_plan_field_annix_1"@en ;
+    :hasAnnexReference :Annex_IX ;
+    :hasComponentOf :TestingPlan_Annex_IX ;
+    :hasSummary "A Union-wide unique single identification number of the testing in real world conditions"^^xsd:string .
+
+:testing_plan_field_annix_2 a :TestingPlanField ;
+    rdfs:label "testing_plan_field_annix_2"@en ;
+    :hasAnnexReference :Annex_IX ;
+    :hasComponentOf :TestingPlan_Annex_IX ;
+    :hasSummary "The name and contact details of the provider or prospective provider and of the deployers involved in the testing in real world conditions"^^xsd:string .
+
+:testing_plan_field_annix_3 a :TestingPlanField ;
+    rdfs:label "testing_plan_field_annix_3"@en ;
+    :hasAnnexReference :Annex_IX ;
+    :hasComponentOf :TestingPlan_Annex_IX ;
+    :hasSummary "A brief description of the AI system, its intended purpose, and other information necessary for the identification of the system"^^xsd:string .
+
+:testing_plan_field_annix_4 a :TestingPlanField ;
+    rdfs:label "testing_plan_field_annix_4"@en ;
+    :hasAnnexReference :Annex_IX ;
+    :hasComponentOf :TestingPlan_Annex_IX ;
+    :hasSummary "A summary of the main characteristics of the plan for testing in real world conditions"^^xsd:string .
+
+:testing_plan_field_annix_5 a :TestingPlanField ;
+    rdfs:label "testing_plan_field_annix_5"@en ;
+    :hasAnnexReference :Annex_IX ;
+    :hasComponentOf :TestingPlan_Annex_IX ;
+    :hasSummary "Information on the suspension or termination of the testing in real world conditions"^^xsd:string .
+
+:art56_monitoring_evaluation_and_assessment_of_codes a :GPAIObligation ;
+    rdfs:label "art56_monitoring_evaluation_and_assessment_of_codes"@en ;
+    :hasArticleReference :Article_56 ;
+    :hasSummary "The AI Office and the Board shall regularly monitor and evaluate the achievement of the codes of practice objectives and their contribution to the proper application of this Regulation, including assessment of whether the codes cover the obligations in Articles 53 and 55, publishing adequacy assessments."^^xsd:string .
+
+:art56_objectives_commitments_key_performance_indicators a :GPAIObligation ;
+    rdfs:label "art56_objectives_commitments_key_performance_indicators"@en ;
+    :hasArticleReference :Article_56 ;
+    :hasSummary "Codes of practice shall clearly state their specific objectives and contain commitments or measures, including key performance indicators as appropriate, to ensure achievement of those objectives while considering the needs and interests of all parties at Union level."^^xsd:string .
+
+:art56_reporting_on_implementation_and_outcomes a :GPAIObligation ;
+    rdfs:label "art56_reporting_on_implementation_and_outcomes"@en ;
+    :hasArticleReference :Article_56 ;
+    :hasSummary "Participants to the codes of practice shall report regularly to the AI Office on the implementation of commitments, measures taken, and their outcomes, including progress measured against key performance indicators, reflecting size and capacity differences of participants."^^xsd:string .
+
+:art56_training_content_summary_detail a :GPAIObligation ;
+    rdfs:label "art56_training_content_summary_detail"@en ;
+    :hasArticleReference :Article_56 ;
+    :hasSummary "Codes of practice should ensure an adequate level of detail for the summary about the content used for training the general-purpose AI models."^^xsd:string .
+
+:art56_updating_information_art53 a :GPAIObligation ;
+    rdfs:label "art56_updating_information_art53"@en ;
+    :hasArticleReference :Article_56 ;
+    :hasSummary "Codes of practice should ensure that the information referred to in Article 53(1), points (a) and (b), is kept up to date considering market and technological developments."^^xsd:string .
+
+:TestingPlan_Annex_IX :hasRequiredComponent :testing_plan_field_annix_1,
+        :testing_plan_field_annix_2,
+        :testing_plan_field_annix_3,
+        :testing_plan_field_annix_4,
+        :testing_plan_field_annix_5 .
+
+:TechnicalDocumentation_Annex_IV :hasRequiredComponent :documentation_component_anniv_2_a,
+        :documentation_component_anniv_2_b,
+        :documentation_component_anniv_2_c,
+        :documentation_component_anniv_2_d,
+        :documentation_component_anniv_2_e,
+        :documentation_component_anniv_2_f,
+        :documentation_component_anniv_2_g,
+        :documentation_component_anniv_2_h,
+        :documentation_component_anniv_3,
+        :documentation_component_anniv_4,
+        :documentation_component_anniv_5,
+        :documentation_component_anniv_6,
+        :documentation_component_anniv_7,
+        :documentation_component_anniv_8,
+        :documentation_component_anniv_9 .
+
+:RegistrationRecord_Annex_VIII :hasRequiredComponent :registration_field_annviii_a_1,
+        :registration_field_annviii_a_10,
+        :registration_field_annviii_a_11,
+        :registration_field_annviii_a_12,
+        :registration_field_annviii_a_13,
+        :registration_field_annviii_a_2,
+        :registration_field_annviii_a_3,
+        :registration_field_annviii_a_4,
+        :registration_field_annviii_a_5,
+        :registration_field_annviii_a_6,
+        :registration_field_annviii_a_7,
+        :registration_field_annviii_a_8,
+        :registration_field_annviii_a_9,
+        :registration_field_annviii_b_1,
+        :registration_field_annviii_b_2,
+        :registration_field_annviii_b_3,
+        :registration_field_annviii_b_4,
+        :registration_field_annviii_b_5,
+        :registration_field_annviii_b_6,
+        :registration_field_annviii_b_7,
+        :registration_field_annviii_b_8,
+        :registration_field_annviii_b_9,
+        :registration_field_annviii_c_1,
+        :registration_field_annviii_c_2,
+        :registration_field_annviii_c_3,
+        :registration_field_annviii_c_4,
+        :registration_field_annviii_c_5 .
+

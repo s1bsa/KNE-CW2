@@ -1,0 +1,673 @@
+@prefix : <https://example.org/eu-ai-act-compliance#> .
+@prefix airo: <https://w3id.org/airo#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dpv: <https://w3id.org/dpv#> .
+@prefix eu-aiact: <https://w3id.org/dpv/legal/eu/aiact#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.org/eu-ai-act-compliance> a owl:Ontology ;
+    rdfs:label "EU AI Act Compliance Ontology"@en ;
+    dct:created "2026-04-07"^^xsd:date ;
+    dct:license <https://creativecommons.org/licenses/by/4.0/> ;
+    rdfs:comment "An OWL 2 ontology extending AIRO (https://w3id.org/airo) and the DPV core ontology (https://w3id.org/dpv) to model obligations, regulatory powers, legal conditions, and document structure of Regulation (EU) 2024/1689 (the EU AI Act). The DPV EU AI Act extension (https://w3id.org/dpv/legal/eu/aiact) is reused via direct IRI references rather than subclassing. CQ-driven design: every custom term is justified by at least one competency question, and every general extension by at least three. External terms are stubbed inline (with rdfs:isDefinedBy provenance) rather than imported, to avoid hierarchy pollution and OWL punning artefacts."@en ;
+    rdfs:seeAlso <https://w3id.org/airo>,
+        <https://w3id.org/dpv>,
+        <https://w3id.org/dpv/legal/eu/aiact> ;
+    owl:versionInfo "3.3.0" .
+
+:AIOffice a owl:NamedIndividual,
+        dpv:Authority ;
+    rdfs:label "AI Office"@en ;
+    rdfs:comment "Named individual representing the AI Office established under the EU AI Act. Acts as a central authority for oversight, coordination, and enforcement activities referenced throughout the Regulation."@en .
+
+:AdvisoryPower a owl:Class ;
+    rdfs:label "Advisory Power"@en ;
+    rdfs:comment "A power to issue guidance, opinions, or codes of practice without binding force (Articles 56, 66, 67)."@en ;
+    rdfs:subClassOf :Power .
+
+:AreaOfApplication a owl:Class ;
+    rdfs:label "Area of Application"@en .
+
+:CEMarking a owl:Class ;
+    rdfs:label "CE Marking"@en ;
+    rdfs:comment "A conformity marking affixed to a high-risk AI system indicating compliance with EU requirements (Articles 47, 48, 49). Optionally accompanied by a notified body identification number when third-party conformity assessment was used."@en ;
+    rdfs:subClassOf airo:Documentation .
+
+:CEMarkingComponent a owl:Class ;
+    rdfs:label "CE Marking Component"@en ;
+    rdfs:comment "A required visible or structural component of the CE marking affixed to a high-risk AI system, as enumerated in Article 48 (e.g. the CE marking itself, the notified body identification number where applicable, the provider's name and address)."@en ;
+    rdfs:subClassOf :RequiredComponent .
+
+:ConformityAssessmentStep a owl:Class ;
+    rdfs:label "Conformity Assessment Step"@en ;
+    rdfs:comment "A step in the conformity assessment procedure as enumerated in Annex VI (internal control procedure) or Annex VII (third-party assessment procedure). Models the procedural decomposition of the assessment activity itself, distinct from the obligation to undergo it."@en ;
+    rdfs:subClassOf :RequiredComponent .
+
+:DeployerIncidentReport a owl:Class ;
+    rdfs:label "Deployer Incident Report"@en ;
+    rdfs:comment "Obligation on a deployer of a high-risk AI system to report serious incidents to the relevant market surveillance authority and to inform the provider, under Article 26(5)."@en ;
+    rdfs:subClassOf :IncidentReportingObligation .
+
+:DeployerStakeholder a owl:NamedIndividual,
+        eu-aiact:AIDeployer ;
+    rdfs:label "Deployer (stakeholder role)"@en ;
+    rdfs:comment "Named individual representing the deployer role under the EU AI Act. Used as the subject of obligation triples linking all deployer-applicable obligations."@en .
+
+:DocumentationComponent a owl:Class ;
+    rdfs:label "Documentation Component"@en ;
+    rdfs:comment "A required component of a technical documentation artefact, corresponding to one bullet of Annex IV (e.g. 'general description of the AI system', 'detailed information about the system's monitoring, functioning and control'). Each high-risk AI system's technical documentation must contain all required documentation components."@en ;
+    rdfs:subClassOf :RequiredComponent,
+        airo:Documentation .
+
+:FRIAObligation a owl:Class ;
+    rdfs:label "Fundamental Rights Impact Assessment Obligation"@en ;
+    rdfs:comment "An obligation requiring specific deployer categories (public-law bodies, private entities providing public services, certain Annex III deployers) to assess fundamental-rights impacts before deploying a high-risk AI system (Article 27)."@en ;
+    rdfs:subClassOf dpv:Obligation .
+
+:GPAISystemicRiskIncidentReport a owl:Class ;
+    rdfs:label "GPAI Systemic-Risk Incident Report"@en ;
+    rdfs:comment "Obligation on a provider of a GPAI model with systemic risk to report serious incidents and possible corrective measures to the AI Office without undue delay, under Article 55."@en ;
+    rdfs:subClassOf :IncidentReportingObligation .
+
+:GeneralGPAIObligation a owl:Class ;
+    rdfs:label "General GPAI Obligation"@en ;
+    rdfs:comment "Obligation applicable to all general-purpose AI model providers regardless of systemic risk classification: technical documentation, downstream-information sharing, copyright policy, training-data summary (Articles 53, 54)."@en ;
+    rdfs:subClassOf :GPAIObligation .
+
+:GeneralPurposeAIModelWithSystemicRisk a owl:Class ;
+    rdfs:label "GPAI Model with Systemic Risk"@en ;
+    rdfs:subClassOf eu-aiact:GeneralPurposeAIModel .
+
+:InternalControlObligation a owl:Class ;
+    rdfs:label "Internal Control Conformity Assessment Obligation"@en ;
+    rdfs:comment "Conformity assessment obligation discharged by the provider through an internal control procedure under Annex VI, without involvement of a notified body. Disjoint with :ThirdPartyAssessmentObligation — a high-risk AI system follows exactly one of the two pathways."@en ;
+    rdfs:subClassOf :ConformityAssessmentObligation ;
+    owl:disjointWith :ThirdPartyAssessmentObligation .
+
+:InvestigativePower a owl:Class ;
+    rdfs:label "Investigative Power"@en ;
+    rdfs:comment "A power to request information, conduct evaluations, or carry out investigations of regulated entities (Articles 65, 74)."@en ;
+    rdfs:subClassOf :Power .
+
+:NecessityCondition a owl:Class ;
+    rdfs:label "Necessity Condition"@en ;
+    rdfs:comment "A condition requiring that the action be strictly necessary for a specified legitimate purpose (e.g. real-time biometric identification only when no less intrusive means would suffice)."@en ;
+    rdfs:subClassOf :Condition .
+
+:NotifiedBody a owl:Class ;
+    rdfs:label "Notified Body"@en ;
+    rdfs:comment "A conformity assessment body that has been formally notified under Article 30 of the EU AI Act because it meets all the substantive requirements of Article 31 (independence, competence, impartiality, resources, etc.). Defined class: any ConformityAssessmentBody that meets the full set of twelve requirements is classified as a NotifiedBody."@en ;
+    rdfs:subClassOf :ConformityAssessmentBody ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( :ConformityAssessmentBody [ a owl:Restriction ;
+                        owl:hasValue :OrganisationalRequirement ;
+                        owl:onProperty :meetsRequirement ] [ a owl:Restriction ;
+                        owl:hasValue :QualityManagementRequirement ;
+                        owl:onProperty :meetsRequirement ] [ a owl:Restriction ;
+                        owl:hasValue :ResourceRequirement ;
+                        owl:onProperty :meetsRequirement ] [ a owl:Restriction ;
+                        owl:hasValue :ProcessRequirement ;
+                        owl:onProperty :meetsRequirement ] [ a owl:Restriction ;
+                        owl:hasValue :CybersecurityRequirement ;
+                        owl:onProperty :meetsRequirement ] [ a owl:Restriction ;
+                        owl:hasValue :IndependenceRequirement ;
+                        owl:onProperty :meetsRequirement ] [ a owl:Restriction ;
+                        owl:hasValue :ObjectivityRequirement ;
+                        owl:onProperty :meetsRequirement ] [ a owl:Restriction ;
+                        owl:hasValue :ImpartialityRequirement ;
+                        owl:onProperty :meetsRequirement ] [ a owl:Restriction ;
+                        owl:hasValue :ProfessionalIntegrityRequirement ;
+                        owl:onProperty :meetsRequirement ] [ a owl:Restriction ;
+                        owl:hasValue :CompetenceRequirement ;
+                        owl:onProperty :meetsRequirement ] [ a owl:Restriction ;
+                        owl:hasValue :ConfidentialityRequirement ;
+                        owl:onProperty :meetsRequirement ] [ a owl:Restriction ;
+                        owl:hasValue :LiabilityInsuranceRequirement ;
+                        owl:onProperty :meetsRequirement ] ) ] .
+
+:OversightPower a owl:Class ;
+    rdfs:label "Oversight Power"@en ;
+    rdfs:comment "A power to monitor compliance and supervise the operation of regulated entities or AI systems (e.g. AI Office oversight of GPAI models under Articles 51-52, 88)."@en ;
+    rdfs:subClassOf :Power .
+
+:PostMarketMonitoringObligation a owl:Class ;
+    rdfs:label "Post-Market Monitoring Obligation"@en ;
+    rdfs:comment "An obligation requiring providers to establish a proportionate post-market monitoring system to collect and review experience gained from deployed high-risk AI systems (Articles 9, 72)."@en ;
+    rdfs:subClassOf dpv:Obligation .
+
+:ProceduralCondition a owl:Class ;
+    rdfs:label "Procedural Condition"@en ;
+    rdfs:comment "A condition imposing a procedural safeguard, such as prior judicial authorisation or third-party conformity assessment."@en ;
+    rdfs:subClassOf :Condition .
+
+:ProportionalityCondition a owl:Class ;
+    rdfs:label "Proportionality Condition"@en ;
+    rdfs:comment "A condition requiring that the action be proportionate to the objective pursued, balancing the intrusion against the public interest at stake."@en ;
+    rdfs:subClassOf :Condition .
+
+:ProviderIncidentReport a owl:Class ;
+    rdfs:label "Provider Incident Report"@en ;
+    rdfs:comment "Obligation on a high-risk AI system provider to report serious incidents to the relevant national market surveillance authority within the deadlines set out in Article 73."@en ;
+    rdfs:subClassOf :IncidentReportingObligation .
+
+:ProviderStakeholder a owl:NamedIndividual,
+        eu-aiact:AIProvider ;
+    rdfs:label "Provider (stakeholder role)"@en ;
+    rdfs:comment "Named individual representing the provider role under the EU AI Act. Used as the subject of obligation triples linking all provider-applicable obligations."@en .
+
+:PurposeCondition a owl:Class ;
+    rdfs:label "Purpose Condition"@en ;
+    rdfs:comment "A condition limiting an action to specific legitimate purposes (e.g. biometric identification permitted only for victim search, terrorist threat prevention, or serious-crime suspect identification)."@en ;
+    rdfs:subClassOf :Condition .
+
+:RegistrationField a owl:Class ;
+    rdfs:label "Registration Field"@en ;
+    rdfs:comment "A required field in the EU database registration record for a high-risk AI system, as enumerated in Annex VIII (e.g. provider name, AI system trade name, intended purpose, status). Each provider's registration record must populate all required registration fields."@en ;
+    rdfs:subClassOf :RequiredComponent,
+        airo:Documentation .
+
+:SMEProvider a owl:Class ;
+    rdfs:label "SME Provider"@en ;
+    rdfs:comment "A small or medium-sized enterprise providing AI systems, entitled to specific support measures under Article 62. Modelled as a subclass of eu-aiact:AIProvider so all Provider properties (incl. obligations) apply."@en ;
+    rdfs:subClassOf eu-aiact:AIProvider .
+
+:SupportMeasureObligation a owl:Class ;
+    rdfs:label "SME Support Measure Obligation"@en ;
+    rdfs:comment "An obligation on Member States to provide support measures (priority sandbox access, dedicated communication channels, reduced fees, tailored guidance) to SME and start-up providers (Article 62)."@en ;
+    rdfs:subClassOf dpv:Obligation .
+
+:SystemicRiskGPAIObligation a owl:Class ;
+    rdfs:label "Systemic Risk GPAI Obligation"@en ;
+    rdfs:comment "Additional obligation applicable only to providers of GPAI models classified as posing systemic risk under Article 51: model evaluation, adversarial testing, incident reporting to the AI Office, and cybersecurity measures (Article 55)."@en ;
+    rdfs:subClassOf :GPAIObligation .
+
+:TestingPlanField a owl:Class ;
+    rdfs:label "Testing Plan Field"@en ;
+    rdfs:comment "A required field in a real-world testing plan for high-risk AI systems, as enumerated in Annex IX. Tied to the regulatory sandbox and real-world testing provisions of Articles 57–60."@en ;
+    rdfs:subClassOf :RequiredComponent,
+        airo:Documentation .
+
+:TransparencyObligation a owl:Class ;
+    rdfs:label "Transparency Obligation"@en ;
+    rdfs:comment "An obligation requiring disclosure of information about an AI system's nature, capabilities, limitations, or AI-generated outputs (Articles 13, 26(8), 50)."@en ;
+    rdfs:subClassOf dpv:Obligation .
+
+:WorkerNotificationObligation a owl:Class ;
+    rdfs:label "Worker Notification Obligation"@en ;
+    rdfs:comment "An obligation requiring deployers to inform workers and their representatives before deploying a high-risk AI system in the workplace to monitor or supervise their performance (Article 26(7))."@en ;
+    rdfs:subClassOf dpv:Obligation .
+
+:amends a owl:ObjectProperty ;
+    rdfs:label "amends"@en ;
+    rdfs:comment "Links a regulation to legislation that it amends."@en ;
+    rdfs:domain :AIActRegulation ;
+    rdfs:range :EULegislation .
+
+:cites a owl:ObjectProperty ;
+    rdfs:label "cites"@en ;
+    rdfs:comment "Links a regulation to other legislation that it cites."@en ;
+    rdfs:range :EULegislation .
+
+:createdBy a owl:ObjectProperty ;
+    rdfs:label "created by"@en ;
+    rdfs:comment "Links a regulation to the EU institution that adopted it."@en ;
+    rdfs:domain :AIActRegulation ;
+    rdfs:range dpv:Authority .
+
+:hasAnnexReference a owl:ObjectProperty ;
+    rdfs:label "has annex reference"@en ;
+    rdfs:comment "Links an entity to a specific Annex of the EU AI Act. Sub-property of :hasReference, narrowed to Annex."@en ;
+    rdfs:range :Annex ;
+    rdfs:subPropertyOf :hasReference .
+
+:hasAreaOfApplication a owl:ObjectProperty ;
+    rdfs:label "has area of application"@en .
+
+:hasArticleReference a owl:ObjectProperty ;
+    rdfs:label "has article reference"@en ;
+    rdfs:comment "Links an entity to a specific Article of the EU AI Act. Sub-property of :hasReference, narrowed to Article."@en ;
+    rdfs:range :Article ;
+    rdfs:subPropertyOf :hasReference .
+
+:hasCELEXNumber a owl:DatatypeProperty ;
+    rdfs:label "has CELEX number"@en ;
+    rdfs:comment "The CELEX number uniquely identifying a legal act in EUR-Lex."@en ;
+    rdfs:domain :AIActRegulation ;
+    rdfs:range xsd:string .
+
+:hasCellarURI a owl:DatatypeProperty ;
+    rdfs:label "has Cellar URI"@en ;
+    rdfs:comment "The CELLAR repository URI for the regulation. Declared as ObjectProperty because the pipeline outputs bare URIs (not quoted xsd:anyURI literals)."@en ;
+    rdfs:domain :AIActRegulation ;
+    rdfs:range xsd:string .
+
+:hasComplianceDeadline a owl:DatatypeProperty ;
+    rdfs:label "has compliance deadline"@en ;
+    rdfs:comment "The date by which a provider or deployer must fulfil a given obligation under the EU AI Act's phased entry-into-force schedule."@en ;
+    rdfs:domain dpv:Obligation ;
+    rdfs:range xsd:date .
+
+:hasComplianceProvision a owl:ObjectProperty ;
+    rdfs:label "has compliance provision"@en ;
+    rdfs:comment "Links the AI Act regulation to its compliance deadline provisions."@en ;
+    rdfs:domain :AIActRegulation ;
+    rdfs:range :ComplianceDeadlineProvision .
+
+:hasComponentOf a owl:ObjectProperty ;
+    rdfs:label "has component of"@en ;
+    rdfs:comment "Inverse of :hasRequiredComponent. Links a required component to the compliance artefact it belongs to. Provided to enable symmetric SPARQL traversal in both directions (artefact → components and component → artefact)."@en ;
+    rdfs:domain :RequiredComponent ;
+    owl:inverseOf :hasRequiredComponent .
+
+:hasCondition a owl:ObjectProperty ;
+    rdfs:label "has condition"@en ;
+    rdfs:comment "Links an obligation, prohibition, exception, sandbox permission, or compliance artefact to a legal condition that must hold for it to apply (e.g. necessity, proportionality, prior judicial authorisation, purpose limitation)."@en ;
+    rdfs:range :Condition .
+
+:hasDeadline a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "has deadline"@en ;
+    rdfs:comment "The maximum permitted time within which an obligation must be discharged (e.g. 15 days for high-risk system incident reports under Art. 73, immediate for GPAI systemic-risk incidents under Art. 55). Functional: a single obligation has at most one deadline."@en ;
+    rdfs:domain dpv:Obligation ;
+    rdfs:range xsd:duration .
+
+:hasDeployer a owl:ObjectProperty ;
+    rdfs:label "has deployer"@en .
+
+:hasEffectiveDate a owl:DatatypeProperty ;
+    rdfs:label "has effective date"@en ;
+    rdfs:comment "The date on which a provision of the EU AI Act becomes effective."@en ;
+    rdfs:domain :EntryIntoForceDate ;
+    rdfs:range xsd:date .
+
+:hasEntryIntoForceProvision a owl:ObjectProperty ;
+    rdfs:label "has entry into force provision"@en ;
+    rdfs:comment "Links the AI Act regulation to its entry-into-force provisions."@en ;
+    rdfs:domain :AIActRegulation ;
+    rdfs:range :EntryIntoForceProvision .
+
+:hasFine a owl:DatatypeProperty ;
+    rdfs:label "has fine"@en ;
+    rdfs:comment "The maximum monetary fine an enforcement power may impose, expressed in euros (e.g. 35000000 for the maximum administrative fine under Article 99(3) for prohibited-practice infringements). Attached to :EnforcementPower instances by the NER+regex enrichment layer."@en ;
+    rdfs:domain :EnforcementPower ;
+    rdfs:range xsd:decimal .
+
+:hasMaximumFineRatio a owl:DatatypeProperty ;
+    rdfs:label "has maximum fine ratio"@en ;
+    rdfs:comment "The maximum fine an enforcement power may impose, expressed as a fraction of the offender's worldwide annual turnover (e.g. 0.07 for '7% of total worldwide annual turnover' under Article 99(3)). Attached to :EnforcementPower instances by the NER+regex enrichment layer alongside the absolute :hasFine value."@en ;
+    rdfs:domain :EnforcementPower ;
+    rdfs:range xsd:decimal .
+
+:hasModifiedLocation a owl:DatatypeProperty ;
+    rdfs:label "has modified location"@en ;
+    rdfs:comment "A string describing the specific location (article, paragraph, annex point) within an amended legislative act that is modified."@en ;
+    rdfs:domain :EULegislation ;
+    rdfs:range xsd:string .
+
+:hasOJReference a owl:DatatypeProperty ;
+    rdfs:label "has OJ reference"@en ;
+    rdfs:comment "The Official Journal reference for a legal act."@en ;
+    rdfs:domain :AIActRegulation ;
+    rdfs:range xsd:string .
+
+:hasObligation a owl:ObjectProperty ;
+    rdfs:label "has obligation"@en ;
+    rdfs:comment "Links a regulated entity (provider, deployer, AI system, GPAI model, Member State) to an obligation it must fulfil under the EU AI Act. Sub-property of dpv:hasLegalBasis to inherit DPV's legal-grounding semantics."@en ;
+    rdfs:range dpv:Obligation ;
+    rdfs:subPropertyOf dpv:hasLegalBasis .
+
+:hasParagraphReference a owl:ObjectProperty ;
+    rdfs:label "has paragraph reference"@en ;
+    rdfs:comment "Links an entity to a specific Paragraph within an Article or Annex of the EU AI Act. Sub-property of :hasReference, narrowed to Paragraph."@en ;
+    rdfs:range :Paragraph ;
+    rdfs:subPropertyOf :hasReference .
+
+:hasPower a owl:ObjectProperty ;
+    rdfs:label "has power"@en ;
+    rdfs:comment "Links a regulatory authority to a power it holds under the EU AI Act."@en ;
+    rdfs:domain dpv:Authority ;
+    rdfs:range :Power .
+
+:hasProvider a owl:ObjectProperty ;
+    rdfs:label "has provider"@en .
+
+:hasProvisionDate a owl:DatatypeProperty ;
+    rdfs:label "has provision date"@en ;
+    rdfs:comment "The date associated with a provision deadline."@en ;
+    rdfs:domain :ProvisionDeadline ;
+    rdfs:range xsd:date .
+
+:hasRecitalReference a owl:ObjectProperty ;
+    rdfs:label "has recital reference"@en ;
+    rdfs:comment "Links an entity to a specific Recital in the preamble of the EU AI Act. Sub-property of :hasReference, narrowed to Recital."@en ;
+    rdfs:range :Recital ;
+    rdfs:subPropertyOf :hasReference .
+
+:hasReportingTarget a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "has reporting target"@en ;
+    rdfs:comment "Links an incident-reporting obligation to the authority that receives the report (e.g. AI Office for GPAI systemic-risk incidents, Market Surveillance Authority for high-risk system incidents). Functional: each obligation has exactly one designated target authority."@en ;
+    rdfs:domain :IncidentReportingObligation ;
+    rdfs:range dpv:Authority .
+
+:hasSourceURL a owl:DatatypeProperty ;
+    rdfs:label "has source URL"@en ;
+    rdfs:comment "The source URL on EUR-Lex of a unit of the EU AI Act's legislative text (Article, Annex, Paragraph, or Recital). Declared as ObjectProperty because the pipeline outputs bare URIs."@en ;
+    rdfs:domain :LegalText ;
+    rdfs:range xsd:string .
+
+:hasSummary a owl:DatatypeProperty ;
+    rdfs:label "has summary"@en ;
+    rdfs:comment "The summary or descriptive text of a unit of the EU AI Act's legislative text (Article, Annex, Paragraph, or Recital). The primary text-carrying datatype property used across all CQs to ground the KG in the legislative text and the artificialintelligenceact.eu plain-language summaries."@en ;
+    rdfs:domain :LegalText ;
+    rdfs:range xsd:string .
+
+:isRegulatedBy a owl:ObjectProperty ;
+    rdfs:label "is regulated by"@en ;
+    rdfs:comment "Associates an AI system or obligation with the legislative instrument that governs it."@en ;
+    rdfs:range :AIActRegulation ;
+    rdfs:subPropertyOf airo:compliesWithRegulation .
+
+:requiresControl a owl:ObjectProperty ;
+    rdfs:label "requires control"@en ;
+    rdfs:comment "Links an obligation to a risk control whose implementation it mandates. Sub-property of airo:hasRiskControl, scoped to the legal-obligation context. Used to express, e.g., that a post-market monitoring obligation requires the implementation of specific monitoring controls."@en ;
+    rdfs:domain dpv:Obligation ;
+    rdfs:range airo:RiskControl ;
+    rdfs:subPropertyOf airo:hasRiskControl .
+
+airo:AISubject a owl:Class ;
+    rdfs:label "AI Subject (AIRO)"@en ;
+    rdfs:isDefinedBy <https://w3id.org/airo> .
+
+airo:hasAISubject a owl:ObjectProperty ;
+    rdfs:label "has AI subject (AIRO)"@en ;
+    rdfs:isDefinedBy <https://w3id.org/airo> .
+
+airo:hasDocumentation a owl:ObjectProperty ;
+    rdfs:label "has documentation (AIRO)"@en ;
+    rdfs:isDefinedBy <https://w3id.org/airo> .
+
+airo:hasRisk a owl:ObjectProperty ;
+    rdfs:label "has risk (AIRO)"@en ;
+    rdfs:isDefinedBy <https://w3id.org/airo> .
+
+dpv:NaturalPerson a owl:Class ;
+    rdfs:label "Natural Person (DPV)"@en ;
+    rdfs:isDefinedBy <https://w3id.org/dpv> .
+
+eu-aiact:AIRegulatorySandbox a owl:Class ;
+    rdfs:label "AI Regulatory Sandbox (EU AI Act)"@en ;
+    rdfs:isDefinedBy <https://w3id.org/dpv/legal/eu/aiact> .
+
+eu-aiact:ConformityAssessment a owl:Class ;
+    rdfs:label "Conformity Assessment (EU AI Act)"@en ;
+    rdfs:isDefinedBy <https://w3id.org/dpv/legal/eu/aiact> .
+
+eu-aiact:HighRiskAISystem owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( airo:AISystem [ a owl:Restriction ;
+                        owl:hasValue :HighRisk ;
+                        owl:onProperty :hasRiskLevel ] ) ] .
+
+eu-aiact:ProhibitedAISystem a owl:Class ;
+    rdfs:label "Prohibited AI System (EU AI Act)"@en ;
+    rdfs:isDefinedBy <https://w3id.org/dpv/legal/eu/aiact> ;
+    rdfs:subClassOf airo:AISystem .
+
+eu-aiact:ProhibitedPractice a owl:Class ;
+    rdfs:label "Prohibited Practice (EU AI Act)"@en ;
+    rdfs:isDefinedBy <https://w3id.org/dpv/legal/eu/aiact> .
+
+eu-aiact:TechnicalDocumentation a owl:Class ;
+    rdfs:label "Technical Documentation (EU AI Act)"@en ;
+    rdfs:isDefinedBy <https://w3id.org/dpv/legal/eu/aiact> ;
+    rdfs:subClassOf airo:Documentation .
+
+:Annex a owl:Class ;
+    rdfs:label "Annex"@en ;
+    rdfs:comment "A numbered annex of the EU AI Act, containing supplementary provisions (e.g. Annex I harmonised legislation, Annex III high-risk areas, Annexes VI/VII conformity assessment procedures)."@en ;
+    rdfs:subClassOf :LegalText .
+
+:Article a owl:Class ;
+    rdfs:label "Article"@en ;
+    rdfs:comment "A numbered article within the EU AI Act, representing a discrete legal provision of the regulation."@en ;
+    rdfs:subClassOf :LegalText .
+
+:CompetenceRequirement a owl:NamedIndividual,
+        :Requirement ;
+    rdfs:label "Competence Requirement"@en ;
+    rdfs:comment "Requirement that a conformity assessment body possess the technical competence needed for its assessment activities, under Article 31."@en .
+
+:ComplianceDeadlineProvision a owl:Class ;
+    rdfs:label "Compliance Deadline Provision"@en ;
+    rdfs:comment "A regulation-level deadline by which specific provisions of the EU AI Act must be complied with, each tied to a specific article."@en ;
+    rdfs:subClassOf :ProvisionDeadline .
+
+:ConfidentialityRequirement a owl:NamedIndividual,
+        :Requirement ;
+    rdfs:label "Confidentiality Requirement"@en ;
+    rdfs:comment "Requirement that a conformity assessment body observe confidentiality obligations under Article 31."@en .
+
+:CybersecurityRequirement a owl:NamedIndividual,
+        :Requirement ;
+    rdfs:label "Cybersecurity Requirement"@en ;
+    rdfs:comment "Requirement concerning the cybersecurity posture of a conformity assessment body under Article 31."@en .
+
+:EntryIntoForceDate a owl:Class ;
+    rdfs:label "Entry Into Force Date"@en ;
+    rdfs:comment "A specific date on which a provision of the EU AI Act enters into force, as extracted from the EUR-Lex CELLAR XML metadata."@en ;
+    rdfs:subClassOf :ProvisionDeadline .
+
+:EntryIntoForceProvision a owl:Class ;
+    rdfs:label "Entry Into Force Provision"@en ;
+    rdfs:comment "A date on which a specific part of the EU AI Act becomes legally active, referencing the relevant article (typically Art. 113)."@en ;
+    rdfs:subClassOf :ProvisionDeadline .
+
+:HighRisk a owl:NamedIndividual,
+        :RiskLevel ;
+    rdfs:label "High Risk"@en ;
+    rdfs:comment "Named individual representing the high-risk level under the EU AI Act. Used as the filler in the equivalent-class definition of eu-aiact:HighRiskAISystem."@en .
+
+:ImpartialityRequirement a owl:NamedIndividual,
+        :Requirement ;
+    rdfs:label "Impartiality Requirement"@en ;
+    rdfs:comment "Requirement that a conformity assessment body act impartially in its assessment activities, under Article 31."@en .
+
+:IndependenceRequirement a owl:NamedIndividual,
+        :Requirement ;
+    rdfs:label "Independence Requirement"@en ;
+    rdfs:comment "Requirement that a conformity assessment body be independent of the entities it assesses, under Article 31."@en .
+
+:LiabilityInsuranceRequirement a owl:NamedIndividual,
+        :Requirement ;
+    rdfs:label "Liability Insurance Requirement"@en ;
+    rdfs:comment "Requirement that a conformity assessment body hold adequate liability insurance, under Article 31."@en .
+
+:ObjectivityRequirement a owl:NamedIndividual,
+        :Requirement ;
+    rdfs:label "Objectivity Requirement"@en ;
+    rdfs:comment "Requirement that a conformity assessment body carry out its activities objectively, under Article 31."@en .
+
+:OrganisationalRequirement a owl:NamedIndividual,
+        :Requirement ;
+    rdfs:label "Organisational Requirement"@en ;
+    rdfs:comment "Requirement concerning the organisational structure of a conformity assessment body under Article 31."@en .
+
+:Paragraph a owl:Class ;
+    rdfs:label "Paragraph"@en ;
+    rdfs:comment "A numbered or lettered paragraph within an Article or Annex, carrying the primary textual content of a legal provision."@en ;
+    rdfs:subClassOf :LegalText .
+
+:ProcessRequirement a owl:NamedIndividual,
+        :Requirement ;
+    rdfs:label "Process Requirement"@en ;
+    rdfs:comment "Requirement concerning the processes and procedures a conformity assessment body must follow under Article 31."@en .
+
+:ProfessionalIntegrityRequirement a owl:NamedIndividual,
+        :Requirement ;
+    rdfs:label "Professional Integrity Requirement"@en ;
+    rdfs:comment "Requirement that staff of a conformity assessment body act with professional integrity, under Article 31."@en .
+
+:QualityManagementRequirement a owl:NamedIndividual,
+        :Requirement ;
+    rdfs:label "Quality Management Requirement"@en ;
+    rdfs:comment "Requirement concerning the quality management system of a conformity assessment body under Article 31."@en .
+
+:Recital a owl:Class ;
+    rdfs:label "Recital"@en ;
+    rdfs:comment "A numbered recital from the preamble of the EU AI Act, providing the rationale for the operative provisions."@en ;
+    rdfs:subClassOf :LegalText .
+
+:ResourceRequirement a owl:NamedIndividual,
+        :Requirement ;
+    rdfs:label "Resource Requirement"@en ;
+    rdfs:comment "Requirement concerning the human, technical, and financial resources a conformity assessment body must possess under Article 31."@en .
+
+:RiskLevel a owl:Class ;
+    rdfs:label "Risk Level"@en ;
+    rdfs:subClassOf airo:RiskConcept .
+
+:ThirdPartyAssessmentObligation a owl:Class ;
+    rdfs:label "Third-Party Conformity Assessment Obligation"@en ;
+    rdfs:comment "Conformity assessment obligation requiring involvement of a notified body under the Annex VII procedure, mandatory for biometric AI systems and any system whose harmonised standards do not fully apply."@en ;
+    rdfs:subClassOf :ConformityAssessmentObligation .
+
+:hasRequiredComponent a owl:ObjectProperty ;
+    rdfs:label "has required component"@en ;
+    rdfs:comment "Links a compliance artefact (TechnicalDocumentation, CEMarking, registration record, conformity assessment procedure, testing plan) to one of its required components, as enumerated in the relevant annex (IV, VI, VII, VIII, IX). Inverse of :hasComponentOf. Domain and range are intentionally unconstrained so the property can be used uniformly across all artefact-component pairings."@en ;
+    rdfs:range :RequiredComponent .
+
+:hasRiskLevel a owl:ObjectProperty ;
+    rdfs:label "has risk level"@en .
+
+airo:RiskControl a owl:Class ;
+    rdfs:label "Risk Control (AIRO)"@en ;
+    rdfs:isDefinedBy <https://w3id.org/airo> ;
+    rdfs:subClassOf airo:RiskConcept .
+
+airo:compliesWithRegulation a owl:ObjectProperty ;
+    rdfs:label "complies with regulation (AIRO)"@en ;
+    rdfs:isDefinedBy <https://w3id.org/airo> .
+
+airo:hasRiskControl a owl:ObjectProperty ;
+    rdfs:label "has risk control (AIRO)"@en ;
+    rdfs:isDefinedBy <https://w3id.org/airo> .
+
+dpv:hasLegalBasis a owl:ObjectProperty ;
+    rdfs:label "has legal basis (DPV)"@en ;
+    rdfs:isDefinedBy <https://w3id.org/dpv> .
+
+eu-aiact:AIDeployer a owl:Class ;
+    rdfs:label "AI Deployer (EU AI Act)"@en ;
+    rdfs:isDefinedBy <https://w3id.org/dpv/legal/eu/aiact> ;
+    rdfs:subClassOf eu-aiact:AIOperator .
+
+eu-aiact:GeneralPurposeAIModel a owl:Class ;
+    rdfs:label "General Purpose AI Model (EU AI Act)"@en ;
+    rdfs:isDefinedBy <https://w3id.org/dpv/legal/eu/aiact> .
+
+:ConformityAssessmentObligation a owl:Class ;
+    rdfs:label "Conformity Assessment Obligation"@en ;
+    rdfs:comment "An obligation requiring a high-risk AI system provider to undergo conformity assessment before placing the system on the market (Articles 16, 17, 43, 49, Annexes VI and VII)."@en ;
+    rdfs:subClassOf dpv:Obligation .
+
+:EnforcementPower a owl:Class ;
+    rdfs:label "Enforcement Power"@en ;
+    rdfs:comment "A power to impose corrective measures, fines, or other sanctions for non-compliance (Articles 99-101). Optionally quantified via :hasFine and :hasMaximumFineRatio for monetary penalties."@en ;
+    rdfs:subClassOf :Power .
+
+:GPAIObligation a owl:Class ;
+    rdfs:label "GPAI Provider Obligation"@en ;
+    rdfs:comment "Parent class for obligations applicable to providers of general-purpose AI models (Articles 53, 54, 55, 56). Subdivided into general obligations applicable to all GPAI providers and additional obligations applicable only to providers of GPAI models with systemic risk."@en ;
+    rdfs:subClassOf dpv:Obligation .
+
+airo:AISystem a owl:Class ;
+    rdfs:label "AI System (AIRO)"@en ;
+    rdfs:isDefinedBy <https://w3id.org/airo> .
+
+airo:Regulation a owl:Class ;
+    rdfs:label "Regulation (AIRO)"@en ;
+    rdfs:isDefinedBy <https://w3id.org/airo> .
+
+airo:RiskConcept a owl:Class ;
+    rdfs:label "Risk Concept (AIRO)"@en ;
+    rdfs:isDefinedBy <https://w3id.org/airo> .
+
+eu-aiact:AIOperator a owl:Class ;
+    rdfs:label "AI Operator (EU AI Act)"@en ;
+    rdfs:isDefinedBy <https://w3id.org/dpv/legal/eu/aiact> .
+
+eu-aiact:AIProvider a owl:Class ;
+    rdfs:label "AI Provider (EU AI Act)"@en ;
+    rdfs:isDefinedBy <https://w3id.org/dpv/legal/eu/aiact> ;
+    rdfs:subClassOf eu-aiact:AIOperator .
+
+:ConformityAssessmentBody a owl:Class ;
+    rdfs:label "Conformity Assessment Body"@en ;
+    rdfs:comment "A body designated and notified under the EU AI Act to carry out third-party conformity assessment activities for high-risk AI systems (Articles 29–39). Modelled as a subclass of dpv:Authority."@en ;
+    rdfs:subClassOf dpv:Authority .
+
+:EULegislation a owl:Class ;
+    rdfs:label "EU Legislation"@en ;
+    rdfs:comment "A European Union legislative act cited or amended by the EU AI Act, including regulations, directives, treaties, and institutional opinions."@en ;
+    rdfs:subClassOf airo:Regulation .
+
+:IncidentReportingObligation a owl:Class ;
+    rdfs:label "Serious Incident Reporting Obligation"@en ;
+    rdfs:comment "Parent class for obligations to report serious incidents to a relevant authority within a specified timeframe. Subdivided by who must report (provider, deployer, GPAI systemic-risk provider) and to whom."@en ;
+    rdfs:subClassOf dpv:Obligation .
+
+:ProvisionDeadline a owl:Class ;
+    rdfs:label "Provision Deadline"@en ;
+    rdfs:comment "An intermediate node bundling a date and an article reference for a regulation-level temporal provision of the EU AI Act."@en .
+
+:hasReference a owl:ObjectProperty ;
+    rdfs:label "has reference"@en ;
+    rdfs:comment "Links any entity (obligation, power, condition, risk control, requirement, etc.) to a unit of the EU AI Act's legislative text that grounds, defines, or justifies it. Parent of the four structural sub-properties hasArticleReference, hasAnnexReference, hasParagraphReference, and hasRecitalReference. Also used by the NER+regex enrichment layer to express article-to-article cross-references found inside paragraph text (e.g. when an obligation summary contains 'as referred to in Article 43')."@en ;
+    rdfs:range :LegalText .
+
+:Condition a owl:Class ;
+    rdfs:label "Legal Condition"@en ;
+    rdfs:comment "Parent class for legal conditions that gate permissions, exceptions, derogations, or sandbox participation under the EU AI Act. A Condition is the IF in 'IF X holds THEN Y is permitted/required'."@en .
+
+:Power a owl:Class ;
+    rdfs:label "Regulatory Power"@en ;
+    rdfs:comment "Parent class for legal competences held by regulatory bodies under the EU AI Act. The mirror of :Obligation: a Power is what an authority MAY do, an Obligation is what a regulated entity MUST do."@en .
+
+airo:Documentation a owl:Class ;
+    rdfs:label "Documentation (AIRO)"@en ;
+    rdfs:isDefinedBy <https://w3id.org/airo> .
+
+dpv:Authority a owl:Class ;
+    rdfs:label "Authority (DPV)"@en ;
+    rdfs:isDefinedBy <https://w3id.org/dpv> .
+
+:LegalText a owl:Class ;
+    rdfs:label "Legal Text"@en ;
+    rdfs:comment "Superclass grouping the structural units of the EU AI Act's legislative text: Articles, Annexes, Paragraphs, and Recitals. Provides a common type for properties that may reference any textual unit of the regulation."@en .
+
+:RequiredComponent a owl:Class ;
+    rdfs:label "Required Component"@en ;
+    rdfs:comment "Parent class for fine-grained required parts of compliance artefacts under the EU AI Act. Subdivided by the kind of artefact each component belongs to. Used by the rule-based extraction layer to decompose enumerated annex content (e.g. Annex IV documentation requirements, Annex VIII registration fields) into addressable individuals rather than collapsing them into a single text blob."@en .
+
+:AIActRegulation a owl:Class ;
+    rdfs:label "AI Act Regulation"@en ;
+    rdfs:comment "A binding legislative act governing AI systems, represented as a subclass of airo:Regulation and used to associate AI systems with their regulatory context."@en ;
+    rdfs:subClassOf airo:Regulation .
+
+:meetsRequirement a owl:ObjectProperty ;
+    rdfs:label "meets requirement"@en ;
+    rdfs:comment "Links a conformity assessment body to a substantive requirement (independence, competence, impartiality, etc.) it must satisfy to be designated and notified under Article 31 of the EU AI Act."@en ;
+    rdfs:domain :ConformityAssessmentBody ;
+    rdfs:range :Requirement .
+
+dpv:Obligation a owl:Class ;
+    rdfs:label "Obligation (DPV)"@en ;
+    rdfs:isDefinedBy <https://w3id.org/dpv> .
+
+:Requirement a owl:Class ;
+    rdfs:label "Requirement"@en ;
+    rdfs:comment "A substantive requirement that a conformity assessment body must meet to be designated and notified under the EU AI Act (e.g. independence, competence, impartiality, confidentiality, and operational requirements set out in Article 31)."@en .
+

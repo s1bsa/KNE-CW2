@@ -1,0 +1,460 @@
+# ════════════════════════════════════════════════════════════════════════════
+#  EU AI Act Compliance Knowledge Graph — Competency Question Queries
+#  Ontology version: post-fix-9 TBox refresh
+#  Total queries: 20  (10 manual CQs + 10 LLM-augmented CQs)
+# ════════════════════════════════════════════════════════════════════════════
+#
+# Vocabulary changes from previous version (driven by TBox fixes 1–9):
+#   - airo:hasProvider / hasDeployer / hasAreaOfApplication  →  :hasProvider /
+#     :hasDeployer / :hasAreaOfApplication  (the airo: terms don't actually
+#     exist in AIRO; moved to our namespace)
+#   - airo:hasRiskLevel → :hasRiskLevel  (same reason)
+#   - eu-aiact:AIOffice (class) → :AIOffice (named individual of dpv:Authority)
+#   - eu-aiact:NotifiedBody (class) → :NotifiedBody (defined class in our
+#     namespace, equivalent to ConformityAssessmentBody ⊓ all 12 requirements)
+#   - :hasArticle → :hasArticleReference  (sub-property of :hasReference)
+#   - :hasParagraph deleted (use :hasReference family instead)
+#   - eu-aiact:HighRiskAISystem is now a defined class:
+#       AISystem ⊓ (:hasRiskLevel value :HighRisk)
+#
+# Common prefixes (all queries below assume these are in scope):
+#
+#   PREFIX :         <https://example.org/eu-ai-act-compliance#>
+#   PREFIX airo:     <https://w3id.org/airo#>
+#   PREFIX eu-aiact: <https://w3id.org/dpv/legal/eu/aiact#>
+#   PREFIX dpv:      <https://w3id.org/dpv#>
+#   PREFIX rdfs:     <http://www.w3.org/2000/01/rdf-schema#>
+#
+# Each query repeats the prefixes for portability — copy any individual query
+# into a SPARQL endpoint and it will run standalone.
+# ════════════════════════════════════════════════════════════════════════════
+
+
+# CQ1 — Which AI systems are classified as high-risk under the EU AI Act,
+#       and what sector do they belong to?
+# ────────────────────────────────────────────────────────────────────────────
+
+PREFIX :        <https://example.org/eu-ai-act-compliance#>
+PREFIX airo:    <https://w3id.org/airo#>
+PREFIX eu-aiact: <https://w3id.org/dpv/legal/eu/aiact#>
+PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?aiSystem ?sector
+WHERE {
+  ?aiSystem a eu-aiact:HighRiskAISystem ;
+            :hasAreaOfApplication ?sector .
+}
+ORDER BY ?area ?aiSystem
+
+
+# ---
+# CQ2 — What conformity assessment obligations must a provider of a high-risk
+#       AI system fulfil before market deployment?
+# ────────────────────────────────────────────────────────────────────────────
+
+PREFIX :        <https://example.org/eu-ai-act-compliance#>
+PREFIX airo:    <https://w3id.org/airo#>
+PREFIX eu-aiact: <https://w3id.org/dpv/legal/eu/aiact#>
+PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?obligation ?obligationText
+WHERE {
+  ?aiSystem a eu-aiact:HighRiskAISystem ;
+            :hasProvider ?provider .
+  ?provider :hasObligation ?obligation .
+  ?obligation a :ConformityAssessmentObligation .
+  OPTIONAL { ?obligation :hasSummary ?obligationText . }
+}
+ORDER BY ?obligation
+
+
+# ---
+# CQ3 — Which AI practices are unconditionally prohibited under the EU AI Act,
+#       and what are the grounds for prohibition?
+# ────────────────────────────────────────────────────────────────────────────
+
+PREFIX :        <https://example.org/eu-ai-act-compliance#>
+PREFIX eu-aiact: <https://w3id.org/dpv/legal/eu/aiact#>
+PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?practice ?articleRef ?grounds
+WHERE {
+  ?practice a eu-aiact:ProhibitedPractice .
+  OPTIONAL { ?practice :hasArticleReference ?articleRef . }
+  OPTIONAL { ?practice :hasSummary ?grounds . }
+}
+ORDER BY ?practice
+
+
+# ---
+# CQ4 — What transparency obligations apply to an AI system that interacts
+#       directly with natural persons?
+# ────────────────────────────────────────────────────────────────────────────
+
+PREFIX :        <https://example.org/eu-ai-act-compliance#>
+PREFIX airo:    <https://w3id.org/airo#>
+PREFIX eu-aiact: <https://w3id.org/dpv/legal/eu/aiact#>
+PREFIX dpv:     <https://w3id.org/dpv#>
+PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?aiSystem ?obligation ?articleRef ?obligationText
+WHERE {
+  ?aiSystem a airo:AISystem ;
+            airo:hasAISubject ?subject .
+  ?subject a dpv:NaturalPerson .
+  ?aiSystem :hasObligation ?obligation .
+  ?obligation a :TransparencyObligation .
+  OPTIONAL { ?obligation :hasArticleReference ?articleRef . }
+  OPTIONAL { ?obligation :hasSummary ?obligationText . }
+}
+ORDER BY ?aiSystem ?articleRef
+
+
+# ---
+# CQ5 — Which articles of the EU AI Act govern obligations for providers of
+#       General Purpose AI (GPAI) models?
+# ────────────────────────────────────────────────────────────────────────────
+
+PREFIX :        <https://example.org/eu-ai-act-compliance#>
+PREFIX eu-aiact: <https://w3id.org/dpv/legal/eu/aiact#>
+PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?articleRef ?articleLabel ?obligation ?obligationText
+WHERE {
+  ?model a eu-aiact:GeneralPurposeAIModel ;
+         :hasObligation ?obligation .
+  ?obligation a ?obligationType .
+  FILTER(?obligationType IN (
+    :GPAIObligation,
+    :GeneralGPAIObligation,
+    :SystemicRiskGPAIObligation
+  ))
+  ?obligation :hasArticleReference ?articleRef .
+  OPTIONAL { ?articleRef rdfs:label ?articleLabel . }
+  OPTIONAL { ?obligation :hasSummary ?obligationText . }
+}
+ORDER BY ?articleRef ?obligation
+
+
+# ---
+# CQ6 — What post-market monitoring obligations does a provider of a
+#       high-risk AI system have after deployment?
+# ────────────────────────────────────────────────────────────────────────────
+
+PREFIX :        <https://example.org/eu-ai-act-compliance#>
+PREFIX airo:    <https://w3id.org/airo#>
+PREFIX eu-aiact: <https://w3id.org/dpv/legal/eu/aiact#>
+PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?aiSystem ?obligation ?obligationText
+WHERE {
+  ?aiSystem a eu-aiact:HighRiskAISystem ;
+            :hasProvider ?provider .
+  ?provider :hasObligation ?obligation .
+  ?obligation a :PostMarketMonitoringObligation .
+  OPTIONAL { ?obligation :hasSummary ?obligationText . }
+}
+ORDER BY ?aiSystem ?obligation
+
+
+# ---
+# CQ7 — Which regulatory body is responsible for enforcing the EU AI Act at
+#       EU level, and what powers does it hold?
+# ────────────────────────────────────────────────────────────────────────────
+#
+# Note: :AIOffice is now a NamedIndividual (not a class) — see fix #3.
+
+PREFIX :        <https://example.org/eu-ai-act-compliance#>
+PREFIX dpv:     <https://w3id.org/dpv#>
+PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?authority ?powerType ?powerText
+WHERE {
+  BIND(:AIOffice AS ?authority)
+  ?authority :hasPower ?power .
+  ?power a ?powerType .
+  OPTIONAL { ?power :hasSummary ?powerText . }
+}
+ORDER BY ?articleRef ?power
+
+
+# ---
+# CQ8 — What technical documentation must accompany a high-risk AI system
+#       when registered in the EU database?
+# ────────────────────────────────────────────────────────────────────────────
+
+PREFIX :        <https://example.org/eu-ai-act-compliance#>
+PREFIX airo:    <https://w3id.org/airo#>
+PREFIX eu-aiact: <https://w3id.org/dpv/legal/eu/aiact#>
+PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?documentation ?articleRef ?docText
+WHERE {
+  ?aiSystem a eu-aiact:HighRiskAISystem ;
+            airo:hasDocumentation ?documentation .
+  ?documentation a eu-aiact:TechnicalDocumentation .
+  OPTIONAL { ?documentation :hasArticleReference ?articleRef . }
+  OPTIONAL { ?documentation :hasSummary ?docText . }
+}
+ORDER BY ?aiSystem ?articleRef
+
+# ---
+# CQ9 — Under what conditions can a law enforcement authority deploy real-time
+#       remote biometric identification systems?
+# ────────────────────────────────────────────────────────────────────────────
+
+PREFIX :        <https://example.org/eu-ai-act-compliance#>
+PREFIX eu-aiact: <https://w3id.org/dpv/legal/eu/aiact#>
+PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?condition ?articleRef ?conditionText
+WHERE {
+  ?practice a eu-aiact:ProhibitedPractice ;
+            rdfs:label ?practiceLabel ;
+            :hasCondition ?condition .
+  FILTER(REGEX(STR(?practiceLabel), "biometric", "i"))
+  ?condition a ?conditionType .
+  OPTIONAL { ?condition :hasArticleReference ?articleRef . }
+  OPTIONAL { ?condition :hasSummary ?conditionText . }
+}
+ORDER BY ?conditionType
+
+
+
+# ---
+# CQ10 — What are the requirements for a human oversight mechanism in a
+#        high-risk AI system?
+# ────────────────────────────────────────────────────────────────────────────
+
+PREFIX :        <https://example.org/eu-ai-act-compliance#>
+PREFIX airo:    <https://w3id.org/airo#>
+PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?control  ?controlText
+WHERE {
+  ?control a airo:RiskControl ;
+           :hasArticleReference :Article_14 .
+  OPTIONAL { ?control rdfs:label ?controlLabel . }
+  OPTIONAL { ?control :hasSummary ?controlText . }
+}
+ORDER BY ?control
+
+
+# ════════════════════════════════════════════════════════════════════════════
+#  LLM-AUGMENTED COMPETENCY QUESTIONS
+# ════════════════════════════════════════════════════════════════════════════
+
+
+# ---
+# LLM1 — What obligations does a deployer have towards workers and their
+#        representatives when a high-risk AI system is used in the workplace
+#        to monitor or supervise their performance?
+# ────────────────────────────────────────────────────────────────────────────
+
+PREFIX :        <https://example.org/eu-ai-act-compliance#>
+PREFIX airo:    <https://w3id.org/airo#>
+PREFIX eu-aiact: <https://w3id.org/dpv/legal/eu/aiact#>
+PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?obligation ?articleRef ?obligationText
+WHERE {
+  ?aiSystem a eu-aiact:HighRiskAISystem ;
+            :hasDeployer ?deployer .
+  ?deployer :hasObligation ?obligation .
+  ?obligation a :WorkerNotificationObligation .
+  OPTIONAL { ?obligation :hasArticleReference ?articleRef . }
+  OPTIONAL { ?obligation :hasSummary ?obligationText . }
+}
+ORDER BY ?aiSystem ?deployer
+
+
+# ---
+# LLM2 — What fundamental rights impact assessment obligations must deployers of certain high-risk AI systems fulfil under the EU AI Act? 
+# ────────────────────────────────────────────────────────────────────────────
+
+PREFIX :        <https://example.org/eu-ai-act-compliance#>
+PREFIX eu-aiact: <https://w3id.org/dpv/legal/eu/aiact#>
+PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?articleRef ?obligationText
+WHERE {
+  ?deployer a eu-aiact:AIDeployer ;
+            :hasObligation ?obligation .
+  ?obligation a :FRIAObligation .
+  OPTIONAL { ?obligation :hasArticleReference ?articleRef . }
+  OPTIONAL { ?obligation :hasSummary ?obligationText . }
+}
+ORDER BY ?deployer
+
+
+# ---
+# LLM3 — What requirements must a conformity assessment body satisfy in order
+#        to be designated as a notified body under the EU AI Act?
+# ────────────────────────────────────────────────────────────────────────────
+#
+# TBox-only: enumerates the 12 :Requirement individuals that the defined
+# class :NotifiedBody requires via :meetsRequirement (Article 31).
+
+PREFIX :        <https://example.org/eu-ai-act-compliance#>
+PREFIX owl:     <http://www.w3.org/2002/07/owl#>
+PREFIX rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?requirement ?requirementLabel
+WHERE {
+  ?body a :NotifiedBody .
+  ?body :meetsRequirement ?requirement.
+  OPTIONAL { ?requirement rdfs:label ?requirementLabel . }  
+}
+ORDER BY ?requirement
+
+
+# ---
+# LLM4 — Which articles of the EU AI Act define obligations, and how many
+#        obligations does each article define?
+# ────────────────────────────────────────────────────────────────────────────
+
+PREFIX :        <https://example.org/eu-ai-act-compliance#>
+PREFIX dpv:     <https://w3id.org/dpv#>
+PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?article (COUNT(DISTINCT ?obligation) AS ?obligationCount)
+WHERE {
+  ?obligation a ?type ;
+              :hasArticleReference ?article .
+  ?type rdfs:subClassOf* dpv:Obligation .
+}
+GROUP BY ?article
+ORDER BY DESC(?obligationCount)
+
+
+# ---
+# LLM5 — Under what conditions may a provider gain access to an AI regulatory
+#        sandbox?
+# ────────────────────────────────────────────────────────────────────────────
+
+PREFIX :        <https://example.org/eu-ai-act-compliance#>
+PREFIX eu-aiact: <https://w3id.org/dpv/legal/eu/aiact#>
+PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?condition ?articleRef ?conditionText
+WHERE {
+  ?sandbox a eu-aiact:AIRegulatorySandbox ;
+           :hasCondition ?condition .
+  ?condition a ?conditionType .
+  OPTIONAL { ?condition :hasArticleReference ?articleRef . }
+  OPTIONAL { ?condition :hasSummary ?conditionText . }
+}
+ORDER BY ?articleRef ?condition
+
+
+# ---
+# LLM6 — What criteria determine whether a general-purpose AI model must be
+#        classified as posing systemic risk?
+# ────────────────────────────────────────────────────────────────────────────
+#
+# Pulls all conditions attached to the GPAI-with-systemic-risk class, plus
+# any conditions referenced from Articles 51 / 52 (the classification
+# criteria provisions).
+
+PREFIX :        <https://example.org/eu-ai-act-compliance#>
+PREFIX eu-aiact: <https://w3id.org/dpv/legal/eu/aiact#>
+PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?condition ?articleRef ?criterionText
+WHERE {
+  {
+    ?model a :GeneralPurposeAIModelWithSystemicRisk ;
+           :hasCondition ?condition .
+  } UNION {
+    ?condition :hasArticleReference ?art .
+    FILTER(?art IN (:Article_51, :Article_52))
+  }
+  OPTIONAL { ?condition :hasArticleReference ?articleRef . }
+  OPTIONAL { ?condition :hasSummary ?criterionText . }
+}
+ORDER BY ?articleRef ?condition
+
+
+# ---
+# LLM7 — Which enforcement powers can impose administrative fines of at least
+#        3% of worldwide annual turnover, and what non-compliance do they target?
+# ────────────────────────────────────────────────────────────────────────────
+
+PREFIX :     <https://example.org/eu-ai-act-compliance#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
+
+SELECT DISTINCT ?power ?turnoverPercent ?articleRef ?summary
+WHERE {
+  ?power a :EnforcementPower ;
+         :hasMaximumFineRatio ?ratio .
+  FILTER(?ratio >= 0.03)
+  BIND((?ratio * 100) AS ?turnoverPercent)
+
+  OPTIONAL { ?power :hasArticleReference ?articleRef . }
+  OPTIONAL { ?power :hasSummary ?summary . }
+}
+ORDER BY DESC(?turnoverPercent)
+
+
+# ---
+# LLM8 — What specific support measures are Member States obliged to provide
+#        exclusively to SME providers to facilitate compliance with the
+#        EU AI Act?
+# ────────────────────────────────────────────────────────────────────────────
+
+PREFIX :        <https://example.org/eu-ai-act-compliance#>
+PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?obligation ?articleRef ?measureText
+WHERE {
+  ?obligation a :SupportMeasureObligation .
+  OPTIONAL { ?obligation :hasArticleReference ?articleRef . }
+  OPTIONAL { ?obligation :hasSummary ?measureText . }
+}
+ORDER BY ?obligation
+
+
+# ---
+# LLM9 — Which support mechanisms under the EU AI Act assist SME providers and start-ups through AI regulatory sandbox access, 
+# conformity-assessment fee reductions, guidance services, and AI Office information tools, and which of these are provided by Member States 
+# versus the AI Office?
+# ────────────────────────────────────────────────────────────────────────────
+
+PREFIX :        <https://example.org/eu-ai-act-compliance#>
+PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?obligation ?article ?obligationText
+WHERE {
+  ?sme a :SMEProvider ;
+       :hasObligation ?obligation .
+  ?obligation a ?obligationType .
+  FILTER(?obligationType = :SupportMeasureObligation)
+  OPTIONAL { ?obligation :hasArticleReference ?article . }
+  OPTIONAL { ?obligation :hasSummary ?obligationText . }
+}
+ORDER BY ?article ?obligation
+
+
+# ---
+# LLM10 — What obligations does a deployer have when a high-risk AI system
+#         under its control causes or contributes to a serious incident?
+# ────────────────────────────────────────────────────────────────────────────
+
+PREFIX :        <https://example.org/eu-ai-act-compliance#>
+PREFIX eu-aiact: <https://w3id.org/dpv/legal/eu/aiact#>
+PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?obligation ?articleRef ?authority ?obligationText
+WHERE {
+  ?aiSystem a eu-aiact:HighRiskAISystem ;
+            :hasDeployer ?deployer .
+  ?deployer :hasObligation ?obligation .
+  ?obligation a :DeployerIncidentReport .
+  OPTIONAL { ?obligation :hasArticleReference ?articleRef . }
+  OPTIONAL { ?obligation :hasReportingTarget ?authority . }
+  OPTIONAL { ?obligation :hasDeadline ?deadline . }
+  OPTIONAL { ?obligation :hasSummary ?obligationText . }
+}
+ORDER BY ?deployer ?articleRef
