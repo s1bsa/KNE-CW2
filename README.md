@@ -4,6 +4,8 @@
 
 This repository contains the full data pipeline, ontology, SPARQL queries, and evaluation scripts for building a semantically rich knowledge graph of the EU AI Act from three complementary sources: EUR-Lex CELLAR XML metadata, the full HTML legal text, and plain-language summaries from artificialintelligenceact.eu.
 
+Extra note: I personally alongside Gregory Ceremisin developed a python script that automatically builds the ontology as well as developed the SQL queries that evaluated the ontology. 
+
 ---
 
 ## Table of contents
